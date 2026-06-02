@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import heroBgDesktop from "./assets/bg-hero.png";
-import heroBgMobile from "./assets/bg-hero-mobile.png";
 
 // Projeto institucional do Instituto Montcare.
 // Estrutura e documentação organizadas por Matheu Silva.
@@ -206,32 +204,32 @@ const healthcareSolutionGroups = healthcareSolutions.reduce((groups, solution) =
 const specialties = [
   {
     title: "Ortopedia Cirúrgica",
-    icon: "/icones/01_ortopedia-cirurgica.png",
+    icon: "/icones/01_ortopedia-cirurgica.webp",
     description: "Abordagens cirúrgicas modernas com foco em segurança e recuperação funcional.",
   },
   {
     title: "Coluna",
-    icon: "/icones/02_coluna.png",
+    icon: "/icones/02_coluna.webp",
     description: "Avaliação precisa para dores, desalinhamentos e limitações da coluna vertebral.",
   },
   {
     title: "Ombro",
-    icon: "/icones/03_ombro.png",
+    icon: "/icones/03_ombro.webp",
     description: "Tratamento especializado para lesões, instabilidades e dores articulares.",
   },
   {
     title: "Joelho",
-    icon: "/icones/04_joelho.png",
+    icon: "/icones/04_joelho.webp",
     description: "Cuidado completo para desgaste, traumas esportivos e reabilitação articular.",
   },
   {
     title: "Quadril",
-    icon: "/icones/05_quadril.png",
+    icon: "/icones/05_quadril.webp",
     description: "Condutas clínicas e cirúrgicas voltadas à mobilidade e alívio da dor.",
   },
   {
     title: "Mão",
-    icon: "/icones/06_mao.png",
+    icon: "/icones/06_mao.webp",
     description: "Soluções para alterações funcionais, compressões nervosas e lesões finas.",
   },
 ];
@@ -317,7 +315,7 @@ const doctors = [
     name: "Yoanna Evangelos Abbas",
     specialty: "Especialização em Nutrição Esportiva e Obesidade - USP",
     crm: "CRM 392744",
-    image: "/time/1.png",
+    image: "/time/1.webp",
     summary:
       "Atendimento voltado ao cuidado nutricional feminino, com abordagem clínica individualizada e foco em saúde, performance e qualidade de vida.",
   },
@@ -325,7 +323,7 @@ const doctors = [
     name: "Gustavo Bisson",
     specialty: "Ortopedia",
     crm: "CRM 151542SP | RQE 69072",
-    image: "/time/2.png",
+    image: "/time/2.webp",
     summary:
       "Cirurgia de coluna vertebral com foco em diagnóstico preciso, segurança terapêutica e cuidado humanizado.",
   },
@@ -333,7 +331,7 @@ const doctors = [
     name: "Danilo Lira Gianuzzi",
     specialty: "Ortopedia | Cirurgia da Coluna Vertebral",
     crm: "CRM 161.906/SP | RQE 128.977",
-    image: "/time/3.png",
+    image: "/time/3.webp",
     summary:
       "Médico sócio, ortopedista e cirurgião de coluna, com fellowship pelo IAMSPE, formação em cirurgia minimamente invasiva pela USP Ribeirão Preto e atuação em casos de alta complexidade.",
   },
@@ -341,7 +339,7 @@ const doctors = [
     name: "Bruno Tadeu de Oliveira",
     specialty: "Fisioterapia - Osteopatia",
     crm: "CREFITO 200467",
-    image: "/time/4.png",
+    image: "/time/4.webp",
     summary:
       "Reabilitação ortopédica com foco em funcionalidade, controle da dor e recuperação do movimento com abordagem individualizada.",
   },
@@ -349,7 +347,7 @@ const doctors = [
     name: "Guilherme Spaziani",
     specialty: "Infectologista",
     crm: "CRM 141775 | RQE 84306",
-    image: "/time/5.png",
+    image: "/time/5.webp",
     summary:
       "Atendimento especializado em infectologia, com avaliação criteriosa, orientação segura e acompanhamento clínico individualizado.",
   },
@@ -357,7 +355,7 @@ const doctors = [
     name: "Ocilmar Junior",
     specialty: "Ortopedia e Traumatologia",
     crm: "CRM 121989 | RQE 59433",
-    image: "/time/6.png",
+    image: "/time/6.webp",
     summary:
       "Cirurgia de quadril com abordagem especializada, foco em precisão técnica e melhora da qualidade de vida.",
   },
@@ -365,7 +363,7 @@ const doctors = [
     name: "Greice Cristina Tarabay Bisson",
     specialty: "Mastologista",
     crm: "CRM 157503SP | RQE 73078",
-    image: "/time/7.png",
+    image: "/time/7.webp",
     summary:
       "Cirurgia, reconstrução e estética mamária com atendimento especializado, cuidado humanizado e foco em segurança clínica.",
   },
@@ -625,7 +623,7 @@ const CLINIC_NAME = "Instituto Montcare";
 const CLINIC_PHONE = "+55 11 94593-0212";
 const CLINIC_EMAIL = "institutomontcare@gmail.com";
 const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 146";
-const DEFAULT_SHARE_IMAGE = "/logo.png";
+const DEFAULT_SHARE_IMAGE = "/logo.webp";
 const APP_BASE_URL = import.meta.env.BASE_URL.replace(/\/+$/, "") || "/";
 
 // Resolve assets levando em conta ambientes com subpasta ou build estático.
@@ -795,7 +793,15 @@ function Header({ isInnerPage = false }) {
   return (
     <header className={`navbar${isInnerPage ? " navbar-solid" : ""}`}>
         <a className="brand" href={isInnerPage ? getHomeHref() : "#home"} aria-label="Logo da empresa">
-        <img className="brand-logo" src={withBase("/logo.png")} alt="Logo da empresa" />
+        <img
+          className="brand-logo"
+          src={withBase("/logo.webp")}
+          alt="Logo da empresa"
+          width="205"
+          height="64"
+          decoding="async"
+          fetchPriority="high"
+        />
       </a>
 
       <button
@@ -968,7 +974,15 @@ function Footer({ isInnerPage = false }) {
       <div className="footer-shell">
         <div className="footer-brand" data-footer-reveal>
           <span className="footer-kicker">Instituto Montcare</span>
-          <img className="footer-logo" src={withBase("/logo.png")} alt="Instituto Montcare" />
+          <img
+            className="footer-logo"
+            src={withBase("/logo.webp")}
+            alt="Instituto Montcare"
+            width="205"
+            height="64"
+            loading="lazy"
+            decoding="async"
+          />
           <p className="footer-summary">
             Ortopedia resolutiva com atendimento humanizado, estrutura moderna e foco em cuidado
             real para mais mobilidade e qualidade de vida.
@@ -1028,7 +1042,15 @@ function Footer({ isInnerPage = false }) {
           aria-label="Site da Corpad"
           data-footer-credit-reveal
         >
-          <img src={withBase("/logodev.png")} alt="Corpad" className="footer-credit-logo" />
+          <img
+            src={withBase("/logodev.webp")}
+            alt="Corpad"
+            className="footer-credit-logo"
+            width="112"
+            height="32"
+            loading="lazy"
+            decoding="async"
+          />
         </a>
       </div>
       <FloatingWhatsAppButton />
@@ -1043,6 +1065,17 @@ function HomePage() {
       <Header />
 
       <main className="hero-section" id="home">
+        <picture className="hero-media" aria-hidden="true">
+          <source srcSet={withBase("/bg-hero-mobile.webp")} media="(max-width: 760px)" />
+          <img
+            src={withBase("/bg-hero.webp")}
+            alt=""
+            width="1920"
+            height="1080"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="hero-overlay">
           <section className="hero-content">
             <h1 className="hero-title">
@@ -1100,7 +1133,15 @@ function HomePage() {
 
           <div className="about-media" data-reveal>
             <div className="about-image-frame">
-              <img className="about-image" src={withBase("/sobre.png")} alt="Diretores do Instituto Montcare" />
+              <img
+                className="about-image"
+                src={withBase("/sobre.webp")}
+                alt="Diretores do Instituto Montcare"
+                width="495"
+                height="660"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </div>
         </div>
@@ -1121,7 +1162,14 @@ function HomePage() {
                       <div className="solution-art" aria-hidden="true">
                         <span className="solution-art-ray solution-art-ray-one" />
                         <span className="solution-art-ray solution-art-ray-two" />
-                        <img src={withBase(solution.icon)} alt="" />
+                        <img
+                          src={withBase(solution.icon)}
+                          alt=""
+                          width="72"
+                          height="72"
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
 
                       <div className="solution-card-body">
@@ -1164,6 +1212,10 @@ function HomePage() {
                     className="specialty-icon"
                     src={withBase(specialty.icon)}
                     alt=""
+                    width="180"
+                    height="180"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="specialty-card-line" aria-hidden="true" />
@@ -1200,6 +1252,10 @@ function HomePage() {
                     className="doctor-photo"
                     src={withBase(doctor.image)}
                     alt={doctor.name}
+                    width="230"
+                    height="185"
+                    loading="lazy"
+                    decoding="async"
                     style={doctor.imageStyle}
                   />
 
@@ -1328,7 +1384,7 @@ function RehabPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame rehab-photo-frame-compact">
-              <img src={withBase("/reb/2.png")} alt="Paciente com limitação de mobilidade em avaliação ortopédica" />
+              <img src={withBase("/reb/2_3.webp")} alt="Paciente com limitação de mobilidade em avaliação ortopédica" />
             </div>
           </div>
         </div>
@@ -1374,7 +1430,7 @@ function RehabPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame">
-              <img src={withBase("/reb/1.png")} alt="Atendimento de reabilitação ortopédica" />
+              <img src={withBase("/reb/1_3.webp")} alt="Atendimento de reabilitação ortopédica" />
             </div>
           </div>
         </div>
@@ -1435,7 +1491,7 @@ function RehabPage() {
 
           <div className="rehab-about-media">
             <div className="rehab-about-photo-frame">
-              <img src={withBase("/time/2.png")} alt="Dr. Gustavo Bisson" />
+              <img src={withBase("/time/2.webp")} alt="Dr. Gustavo Bisson" />
             </div>
           </div>
         </div>
@@ -1515,7 +1571,7 @@ function ArthrodesisPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame rehab-photo-frame-compact">
-              <img src={withBase("/artrod/1.jpg")} alt="Dor e desconforto na região da coluna" />
+              <img src={withBase("/artrod/1_2.webp")} alt="Dor e desconforto na região da coluna" />
             </div>
           </div>
         </div>
@@ -1562,7 +1618,7 @@ function ArthrodesisPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame">
-              <img src={withBase("/artrod/2.jpg")} alt="Imagem médica da coluna para planejamento de artrodese" />
+              <img src={withBase("/artrod/2_1.webp")} alt="Imagem médica da coluna para planejamento de artrodese" />
             </div>
           </div>
         </div>
@@ -1623,7 +1679,7 @@ function ArthrodesisPage() {
 
           <div className="rehab-about-media">
             <div className="rehab-about-photo-frame">
-              <img src={withBase("/time/2.png")} alt="Dr. Gustavo Bisson" />
+              <img src={withBase("/time/2.webp")} alt="Dr. Gustavo Bisson" />
             </div>
           </div>
         </div>
@@ -1702,7 +1758,7 @@ function InfiltrationsPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame rehab-photo-frame-compact">
-              <img src={withBase("/inf/1.png")} alt="Dor articular e limitação funcional no dia a dia" />
+              <img src={withBase("/inf/1_2.webp")} alt="Dor articular e limitação funcional no dia a dia" />
             </div>
           </div>
         </div>
@@ -1749,7 +1805,7 @@ function InfiltrationsPage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame">
-              <img src={withBase("/inf/2.png")} alt="Procedimento ortopédico com foco em infiltração e dor articular" />
+              <img src={withBase("/inf/2_2.webp")} alt="Procedimento ortopédico com foco em infiltração e dor articular" />
             </div>
           </div>
         </div>
@@ -1809,7 +1865,7 @@ function InfiltrationsPage() {
 
           <div className="rehab-about-media">
             <div className="rehab-about-photo-frame">
-              <img src={withBase("/time/2.png")} alt="Dr. Gustavo Bisson" />
+              <img src={withBase("/time/2.webp")} alt="Dr. Gustavo Bisson" />
             </div>
           </div>
         </div>
@@ -1889,7 +1945,7 @@ function MinimallyInvasivePage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame rehab-photo-frame-compact">
-              <img src={withBase("/Ciru/1.png")} alt="Representação de cirurgia minimamente invasiva" />
+              <img src={withBase("/Ciru/1_1.webp")} alt="Representação de cirurgia minimamente invasiva" />
             </div>
           </div>
         </div>
@@ -1936,7 +1992,7 @@ function MinimallyInvasivePage() {
 
           <div className="rehab-plan-media">
             <div className="rehab-photo-frame">
-              <img src={withBase("/Ciru/2.png")} alt="Equipe em procedimento cirúrgico ortopédico" />
+              <img src={withBase("/Ciru/2_1.webp")} alt="Equipe em procedimento cirúrgico ortopédico" />
             </div>
           </div>
         </div>
@@ -1997,7 +2053,7 @@ function MinimallyInvasivePage() {
 
           <div className="rehab-about-media">
             <div className="rehab-about-photo-frame">
-              <img src={withBase("/time/2.png")} alt="Dr. Gustavo Bisson" />
+              <img src={withBase("/time/2.webp")} alt="Dr. Gustavo Bisson" />
             </div>
           </div>
         </div>

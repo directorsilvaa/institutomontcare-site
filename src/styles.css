@@ -13,8 +13,8 @@
   --text-light: rgba(255, 255, 255, 0.94);
   --line-soft: rgba(255, 255, 255, 0.12);
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.3);
-  --hero-bg-desktop: url("../bg-hero.png");
-  --hero-bg-mobile: url("../bg-hero-mobile.png");
+  --hero-bg-desktop: url("/bg-hero.webp");
+  --hero-bg-mobile: url("/bg-hero-mobile.webp");
 }
 
 * {
@@ -419,11 +419,17 @@ img {
 .hero-section {
   position: relative;
   min-height: 100vh;
-  background:
-    linear-gradient(90deg, rgba(6, 6, 6, 0.96) 0%, rgba(8, 8, 8, 0.82) 32%, rgba(8, 8, 8, 0.35) 58%, rgba(8, 8, 8, 0.18) 100%),
-    var(--hero-bg-desktop) right top / cover no-repeat,
-    linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+  background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
   overflow: hidden;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(6, 6, 6, 0.96) 0%, rgba(8, 8, 8, 0.82) 32%, rgba(8, 8, 8, 0.35) 58%, rgba(8, 8, 8, 0.18) 100%);
+  pointer-events: none;
 }
 
 .hero-section::after {
@@ -438,9 +444,26 @@ img {
     #ffffff;
   clip-path: polygon(0 48%, 16% 60%, 34% 46%, 52% 58%, 70% 44%, 86% 56%, 100% 46%, 100% 100%, 0 100%);
   pointer-events: none;
+  z-index: 2;
+}
+
+.hero-media,
+.hero-media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-media img {
+  object-fit: cover;
+  object-position: right top;
 }
 
 .hero-overlay {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   min-height: 100vh;
@@ -548,6 +571,21 @@ img {
     radial-gradient(circle at top left, rgba(192, 212, 217, 0.22), transparent 26%),
     #ffffff;
   overflow: hidden;
+}
+
+.about-section,
+.team-section,
+.procedures-section,
+.specialties-section,
+.faq-section,
+.testimonials-section,
+.rehab-story-section,
+.rehab-plan-section,
+.rehab-process-section,
+.rehab-about-section,
+.rehab-faq-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
 }
 
 .about-section::after,
@@ -3604,16 +3642,51 @@ img {
     height: 2.05rem;
   }
 
+  [data-reveal],
+  .reveal-item,
+  [data-footer-reveal],
+  [data-footer-credit-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    clip-path: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .team-track,
+  .testimonials-track {
+    animation: none;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+
+  .team-carousel,
+  .testimonials-carousel {
+    overflow-x: auto;
+  }
+
+  .doctor-card,
+  .testimonial-card {
+    scroll-snap-align: start;
+  }
+
   .hero-section,
   .hero-overlay {
     min-height: 540px;
   }
 
   .hero-section {
-    background:
-      linear-gradient(180deg, rgba(8, 12, 14, 0.74) 0%, rgba(8, 12, 14, 0.5) 100%),
-      var(--hero-bg-mobile) center 44% / cover no-repeat,
-      linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+    background: linear-gradient(180deg, #141414 0%, #0d0d0d 100%);
+  }
+
+  .hero-section::before {
+    background: linear-gradient(180deg, rgba(8, 12, 14, 0.74) 0%, rgba(8, 12, 14, 0.5) 100%);
+  }
+
+  .hero-media img {
+    object-position: center 44%;
   }
 
   .hero-overlay {
