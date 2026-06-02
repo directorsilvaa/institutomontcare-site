@@ -2119,9 +2119,6 @@ function App() {
     const canonicalUrl = `${window.location.origin}${meta.path}`;
     const shareImageUrl = `${window.location.origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`;
 
-    document.documentElement.style.setProperty("--hero-bg-desktop", `url("${heroBgDesktop}")`);
-    document.documentElement.style.setProperty("--hero-bg-mobile", `url("${heroBgMobile}")`);
-
     document.title = meta.title;
 
     ensureMeta('meta[name="description"]', { name: "description", content: meta.description });
