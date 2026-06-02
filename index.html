@@ -11,8 +11,8 @@
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#035569" />
-    <link rel="icon" type="image/webp" href="./logo.webp" />
-    <link rel="apple-touch-icon" href="./logo.webp" />
+    <link rel="icon" type="image/webp" href="./logo-small.webp" />
+    <link rel="apple-touch-icon" href="./logo-small.webp" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content="Instituto Montcare" />
@@ -21,48 +21,58 @@
       property="og:description"
       content="Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional."
     />
-    <meta property="og:image" content="/logo.webp" />
+    <meta property="og:image" content="/logo-small.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Instituto Montcare | Ortopedia Resolutiva em São Paulo" />
     <meta
       name="twitter:description"
       content="Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional."
     />
-    <meta name="twitter:image" content="/logo.webp" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Urbanist:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      !function(f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function() {
-          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-      fbq("init", "1702223637618562");
-      fbq("track", "PageView");
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4HV6MQ76D"></script>
+    <meta name="twitter:image" content="/logo-small.webp" />
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
-      gtag("config", "G-P4HV6MQ76D");
+
+      window.addEventListener("load", function() {
+        var hasLoadedMarketing = false;
+        var loadMarketing = function() {
+          if (hasLoadedMarketing) return;
+          hasLoadedMarketing = true;
+
+          var googleScript = document.createElement("script");
+          googleScript.async = true;
+          googleScript.src = "https://www.googletagmanager.com/gtag/js?id=G-P4HV6MQ76D";
+          document.head.appendChild(googleScript);
+          gtag("js", new Date());
+          gtag("config", "G-P4HV6MQ76D");
+
+          !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+              n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+          fbq("init", "1702223637618562");
+          fbq("track", "PageView");
+        };
+
+        ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function(eventName) {
+          window.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+        });
+        window.setTimeout(loadMarketing, 15000);
+      });
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </head>
