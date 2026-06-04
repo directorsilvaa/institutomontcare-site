@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Fisioterapia</title>
+  <desc id="desc">Ícone SVG separado para o card Fisioterapia — categoria Reabilitação e Performance.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0A6073" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="aqua" x1="40" y1="40" x2="210" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9FD2DB" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#DCEFF2" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .bp { fill:none; stroke:#6FB7C5; stroke-width:2; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+    .fine { stroke-width:1.35; }
+    .outline { fill:none; stroke:#0A6073; stroke-width:5.3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .mid { fill:none; stroke:#0A6073; stroke-width:3.8; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .thin { fill:none; stroke:#0A6073; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .soft { fill:none; stroke:#6FB7C5; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .softfill { fill:#B7DCE3; opacity:.42; }
+    .accent { fill:none; stroke:#D5923D; stroke-width:4.4; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .accentThin { fill:none; stroke:#D5923D; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .fillPrimary { fill:#0A6073; }
+    .fillAccent { fill:#D5923D; }
+    .fillAccent2 { fill:#F0B45B; }
+    .white { fill:#F7FEFF; }
+  </style>
+  <rect width="256" height="256" fill="none"/>
+  
+    <g class="blueprint" opacity="0.95">
+      <circle class="bp" cx="128" cy="96" r="58"/>
+      <circle class="bp fine" cx="128" cy="96" r="34" opacity="0.35"/>
+      <path class="bp fine" d="M128 24V172 M56 96H200 M77 45L179 147 M179 45L77 147" opacity="0.32"/>
+      <path class="bp fine" d="M52 120 C76 110 99 109 128 118 C154 126 180 125 205 112" opacity="0.22"/>
+      <path class="bp fine" d="M64 70 C93 63 121 67 150 80 C172 90 188 90 205 82" opacity="0.18"/>
+    </g>
+  <g filter="url(#shadow)">
+    
+      <path class="outline" d="M128 68 L128 112"/>
+      <path class="outline" d="M128 112 L88 145 M128 112 L168 145"/>
+      <path class="mid" d="M128 112 L101 94 M128 112 L155 94"/>
+      <path class="soft" d="M91 145 C107 125 113 110 112 88" opacity=".68"/>
+      <path class="soft" d="M165 145 C149 125 143 110 144 88" opacity=".68"/>
+      <circle class="white" cx="128" cy="112" r="10"/><circle class="mid" cx="128" cy="112" r="10"/>
+      <path class="thin" d="M91 145 L77 166 M165 145 L179 166"/>
+      <path class="accent" d="M91 157 C113 143 132 143 154 157"/><path class="thin" d="M75 152 C91 139 102 135 116 133"/>
+    
+  </g>
+</svg>

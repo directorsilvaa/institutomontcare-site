@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Nutrição Esportiva</title>
+  <desc id="desc">Ícone SVG separado para o card Nutrição Esportiva — categoria Metabolismo e Nutrição.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0A6073" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="aqua" x1="40" y1="40" x2="210" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9FD2DB" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#DCEFF2" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .bp { fill:none; stroke:#6FB7C5; stroke-width:2; stroke-linecap:round; vector-effect:non-scaling-stroke; }
+    .fine { stroke-width:1.35; }
+    .outline { fill:none; stroke:#0A6073; stroke-width:5.3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .mid { fill:none; stroke:#0A6073; stroke-width:3.8; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .thin { fill:none; stroke:#0A6073; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .soft { fill:none; stroke:#6FB7C5; stroke-width:3; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .softfill { fill:#B7DCE3; opacity:.42; }
+    .accent { fill:none; stroke:#D5923D; stroke-width:4.4; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .accentThin { fill:none; stroke:#D5923D; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+    .fillPrimary { fill:#0A6073; }
+    .fillAccent { fill:#D5923D; }
+    .fillAccent2 { fill:#F0B45B; }
+    .white { fill:#F7FEFF; }
+  </style>
+  <rect width="256" height="256" fill="none"/>
+  
+    <g class="blueprint" opacity="0.95">
+      <circle class="bp" cx="128" cy="96" r="58"/>
+      <circle class="bp fine" cx="128" cy="96" r="34" opacity="0.35"/>
+      <path class="bp fine" d="M128 24V172 M56 96H200 M77 45L179 147 M179 45L77 147" opacity="0.32"/>
+      <path class="bp fine" d="M52 120 C76 110 99 109 128 118 C154 126 180 125 205 112" opacity="0.22"/>
+      <path class="bp fine" d="M64 70 C93 63 121 67 150 80 C172 90 188 90 205 82" opacity="0.18"/>
+    </g>
+  <g filter="url(#shadow)">
+    
+      <path class="thin" d="M83 77 L104 57" opacity=".62"/><path class="thin" d="M83 77 L121 87" opacity=".62"/><path class="thin" d="M83 77 L74 116" opacity=".62"/><path class="thin" d="M74 116 L107 128" opacity=".62"/><path class="thin" d="M107 128 L136 112" opacity=".62"/><path class="thin" d="M121 87 L136 112" opacity=".62"/><path class="thin" d="M121 87 L151 72" opacity=".62"/><circle class="white" cx="83" cy="77" r="7"/><circle class="thin" cx="83" cy="77" r="7"/><circle class="white" cx="104" cy="57" r="7"/><circle class="thin" cx="104" cy="57" r="7"/><circle class="white" cx="121" cy="87" r="7"/><circle class="thin" cx="121" cy="87" r="7"/><circle class="white" cx="74" cy="116" r="7"/><circle class="thin" cx="74" cy="116" r="7"/><circle class="white" cx="107" cy="128" r="7"/><circle class="thin" cx="107" cy="128" r="7"/><circle class="white" cx="136" cy="112" r="7"/><circle class="thin" cx="136" cy="112" r="7"/><circle class="white" cx="151" cy="72" r="7"/><circle class="thin" cx="151" cy="72" r="7"/>
+      <path class="soft" d="M78 166 C102 181 132 179 154 164" opacity=".62"/>
+      <path class="outline" d="M150 157 C154 136 169 121 190 116"/><path class="accent" d="M149 157 C166 166 184 162 196 148"/><path class="accentThin" d="M178 116 L188 103 M188 116 L199 107"/>
+    
+  </g>
+</svg>

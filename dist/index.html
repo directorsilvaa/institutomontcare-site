@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instituto Montcare | Ortopedia Resolutiva em São Paulo</title>
+    <meta
+      name="description"
+      content="Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#035569" />
+    <link rel="icon" type="image/webp" href="./logo-small.webp" />
+    <link rel="apple-touch-icon" href="./logo-small.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Instituto Montcare" />
+    <meta property="og:title" content="Instituto Montcare | Ortopedia Resolutiva em São Paulo" />
+    <meta
+      property="og:description"
+      content="Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional."
+    />
+    <meta property="og:image" content="/logo-small.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Instituto Montcare | Ortopedia Resolutiva em São Paulo" />
+    <meta
+      name="twitter:description"
+      content="Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional."
+    />
+    <meta name="twitter:image" content="/logo-small.webp" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      window.addEventListener("load", function() {
+        var hasLoadedMarketing = false;
+        var loadMarketing = function() {
+          if (hasLoadedMarketing) return;
+          hasLoadedMarketing = true;
+
+          var googleScript = document.createElement("script");
+          googleScript.async = true;
+          googleScript.src = "https://www.googletagmanager.com/gtag/js?id=G-P4HV6MQ76D";
+          document.head.appendChild(googleScript);
+          gtag("js", new Date());
+          gtag("config", "G-P4HV6MQ76D");
+
+          !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+              n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = "2.0";
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+          fbq("init", "1702223637618562");
+          fbq("track", "PageView");
+        };
+
+        ["pointerdown", "keydown", "touchstart", "scroll"].forEach(function(eventName) {
+          window.addEventListener(eventName, loadMarketing, { once: true, passive: true });
+        });
+        window.setTimeout(loadMarketing, 15000);
+      });
+    </script>
+    
+    <script type="module" crossorigin src="./assets/index-6790e6fc.js"></script>
+    <link rel="stylesheet" href="./assets/index-86f42d23.css">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1702223637618562&ev=PageView&noscript=1"
+      />
+    </noscript>
+    <div id="root"></div>
+  </body>
+</html>
