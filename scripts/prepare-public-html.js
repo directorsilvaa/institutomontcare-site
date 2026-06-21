@@ -371,9 +371,14 @@ function renderPage(baseHtml, page) {
 const baseHtml = readFileSync(indexPath, "utf8");
 
 for (const page of Object.values(pages)) {
+  const html = renderPage(baseHtml, page);
   const pageDir = join(distDir, page.outputPath);
   mkdirSync(pageDir, { recursive: true });
-  writeFileSync(join(pageDir, "index.html"), renderPage(baseHtml, page));
+  writeFileSync(join(pageDir, "index.html"), html);
+
+  if (page.outputPath) {
+    writeFileSync(join(distDir, `${page.outputPath}.html`), html);
+  }
 }
 
 const lastmod = new Date().toISOString().slice(0, 10);
@@ -441,6 +446,13 @@ Options -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  RewriteCond %{THE_REQUEST} \\s/+(.+)\\.html[\\s?] [NC]
+  RewriteRule ^ %1 [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
 
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
