@@ -35,157 +35,157 @@ const healthcareSolutions = [
   {
     title: "Cirurgias Minimamente Invasivas",
     category: "Saúde da Coluna",
-    icon: "/icones/01_saude_da_coluna__cirurgias_minimamente_invasivas.svg",
+    icon: "/01_saude_da_coluna/01_cirurgias_minimamente_invasivas.svg",
     hrefTitle: "Cirurgias Minimamente Invasivas",
   },
   {
     title: "Infiltrações",
     category: "Saúde da Coluna",
-    icon: "/icones/02_saude_da_coluna__infiltracoes.svg",
+    icon: "/01_saude_da_coluna/02_infiltracoes.svg",
     hrefTitle: "Infiltrações",
   },
   {
     title: "Bloqueios",
     category: "Saúde da Coluna",
-    icon: "/icones/03_saude_da_coluna__bloqueios.svg",
+    icon: "/01_saude_da_coluna/03_bloqueios.svg",
   },
   {
     title: "Artrodeses",
     subtitle: "(Estabilização)",
     category: "Saúde da Coluna",
-    icon: "/icones/04_saude_da_coluna__artrodeses_estabilizacao.svg",
+    icon: "/01_saude_da_coluna/04_artrodeses_estabilizacao.svg",
     hrefTitle: "Artrodeses",
   },
   {
     title: "Tratamento de Escoliose",
     category: "Saúde da Coluna",
-    icon: "/icones/05_saude_da_coluna__tratamento_de_escoliose.svg",
+    icon: "/01_saude_da_coluna/05_tratamento_de_escoliose.svg",
   },
   {
     title: "Reabilitação Ortopédica",
     category: "Reabilitação e Performance",
-    icon: "/icones/06_reabilitacao_e_performance__reabilitacao_ortopedica.svg",
+    icon: "/02_reabilitacao_e_performance/01_reabilitacao_ortopedica.svg",
     hrefTitle: "Reabilitação Ortopédica",
   },
   {
     title: "Fisioterapia",
     category: "Reabilitação e Performance",
-    icon: "/icones/07_reabilitacao_e_performance__fisioterapia.svg",
+    icon: "/02_reabilitacao_e_performance/02_fisioterapia.svg",
   },
   {
     title: "Osteopatia",
     category: "Reabilitação e Performance",
-    icon: "/icones/08_reabilitacao_e_performance__osteopatia.svg",
+    icon: "/02_reabilitacao_e_performance/03_osteopatia.svg",
   },
   {
     title: "Treinamento Funcional",
     category: "Reabilitação e Performance",
-    icon: "/icones/09_reabilitacao_e_performance__treinamento_funcional.svg",
+    icon: "/02_reabilitacao_e_performance/04_treinamento_funcional.svg",
   },
   {
     title: "Recuperação do Movimento",
     category: "Reabilitação e Performance",
-    icon: "/icones/10_reabilitacao_e_performance__recuperacao_de_movimento.svg",
+    icon: "/02_reabilitacao_e_performance/05_recuperacao_do_movimento.svg",
   },
   {
     title: "Mastologia",
     category: "Saúde da Mulher",
-    icon: "/icones/11_saude_da_mulher__mastologia.svg",
+    icon: "/03_saude_da_mulher/01_mastologia.svg",
   },
   {
     title: "Reconstrução Mamária",
     category: "Saúde da Mulher",
-    icon: "/icones/12_saude_da_mulher__reconstrucao_mamaria.svg",
+    icon: "/03_saude_da_mulher/02_reconstrucao_mamaria.svg",
   },
   {
     title: "Estética Mamária",
     category: "Saúde da Mulher",
-    icon: "/icones/13_saude_da_mulher__estetica_mamaria.svg",
+    icon: "/03_saude_da_mulher/03_estetica_mamaria.svg",
   },
   {
     title: "Cuidado Humanizado",
     category: "Saúde da Mulher",
-    icon: "/icones/14_saude_da_mulher__cuidado_humanizado.svg",
+    icon: "/03_saude_da_mulher/04_cuidado_humanizado.svg",
   },
   {
     title: "Saúde Mamária",
     category: "Saúde da Mulher",
-    icon: "/icones/15_saude_da_mulher__saude_mamaria.svg",
+    icon: "/03_saude_da_mulher/05_saude_mamaria.svg",
   },
   {
     title: "Nutrição Esportiva",
     category: "Metabolismo e Nutrição",
-    icon: "/icones/16_metabolismo_e_nutricao__nutricao_esportiva.svg",
+    icon: "/04_metabolismo_e_nutricao/01_nutricao_esportiva.svg",
   },
   {
     title: "Controle de Peso",
     category: "Metabolismo e Nutrição",
-    icon: "/icones/17_metabolismo_e_nutricao__controle_de_peso.svg",
+    icon: "/04_metabolismo_e_nutricao/02_controle_de_peso.svg",
   },
   {
     title: "Performance",
     category: "Metabolismo e Nutrição",
-    icon: "/icones/18_metabolismo_e_nutricao__performance.svg",
+    icon: "/04_metabolismo_e_nutricao/03_performance.svg",
   },
   {
     title: "Composição Corporal",
     category: "Metabolismo e Nutrição",
-    icon: "/icones/19_metabolismo_e_nutricao__composicao_corporal.svg",
+    icon: "/04_metabolismo_e_nutricao/04_composicao_corporal.svg",
   },
   {
     title: "Atendimento Clínico Individualizado",
     category: "Metabolismo e Nutrição",
-    icon: "/icones/20_metabolismo_e_nutricao__atendimento_clinico_individualizado.svg",
+    icon: "/04_metabolismo_e_nutricao/05_atendimento_clinico_individualizado.svg",
   },
   {
     title: "Cirurgia de Quadril",
     category: "Ortopedia de Especialidade",
-    icon: "/icones/21_ortopedia_e_especialidades__cirurgia_de_quadril.svg",
+    icon: "/05_ortopedia_de_especialidade/01_cirurgia_de_quadril.svg",
   },
   {
     title: "Traumatologia Geral",
     category: "Ortopedia de Especialidade",
-    icon: "/icones/22_ortopedia_e_especialidades__traumatologia_geral.svg",
+    icon: "/05_ortopedia_de_especialidade/02_traumatologia_geral.svg",
   },
   {
     title: "Lesões Articulares",
     category: "Ortopedia de Especialidade",
-    icon: "/icones/23_ortopedia_e_especialidades__lesoes_articulares.svg",
+    icon: "/05_ortopedia_de_especialidade/03_lesoes_articulares.svg",
   },
   {
     title: "Avaliação Ortopédica",
     category: "Ortopedia de Especialidade",
-    icon: "/icones/24_ortopedia_e_especialidades__avaliacao_ortopedica.svg",
+    icon: "/05_ortopedia_de_especialidade/04_avaliacao_ortopedica.svg",
   },
   {
     title: "Precisão em Lesões",
     category: "Ortopedia de Especialidade",
-    icon: "/icones/25_ortopedia_e_especialidades__precisao_em_lesoes.svg",
+    icon: "/05_ortopedia_de_especialidade/05_precisao_em_lesoes.svg",
   },
   {
     title: "Avaliação Clínica Criteriosa",
     category: "Cuidado Infectológico",
-    icon: "/icones/26_cuidado_infectologico__avaliacao_clinica_criteriosa.svg",
+    icon: "/06_cuidado_infectologico/01_avaliacao_clinica_orientada.svg",
   },
   {
     title: "Tratamento de Infecções",
     category: "Cuidado Infectológico",
-    icon: "/icones/27_cuidado_infectologico__tratamento_de_infeccoes.svg",
+    icon: "/06_cuidado_infectologico/02_tratamento_de_infeccoes.svg",
   },
   {
     title: "Acompanhamento Preventivo",
     category: "Cuidado Infectológico",
-    icon: "/icones/28_cuidado_infectologico__acompanhamento_preventivo.svg",
+    icon: "/06_cuidado_infectologico/03_acompanhamento_preventivo.svg",
   },
   {
     title: "Seguimento Clínico",
     category: "Cuidado Infectológico",
-    icon: "/icones/29_cuidado_infectologico__seguimento_clinico.svg",
+    icon: "/06_cuidado_infectologico/04_seguimento_clinico.svg",
   },
   {
     title: "Prevenção de Infecções",
     category: "Cuidado Infectológico",
-    icon: "/icones/30_cuidado_infectologico__prevencao_de_infeccoes.svg",
+    icon: "/06_cuidado_infectologico/05_prevencao_de_infeccoes.svg",
   },
 ];
 
@@ -624,22 +624,26 @@ const CLINIC_PHONE = "+55 11 94593-0212";
 const CLINIC_EMAIL = "institutomontcare@gmail.com";
 const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 146";
 const DEFAULT_SHARE_IMAGE = "/logo-small.webp";
-const APP_BASE_URL = import.meta.env.BASE_URL.replace(/\/+$/, "") || "/";
+const RAW_APP_BASE_URL = import.meta.env.BASE_URL || "/";
+const APP_BASE_URL =
+  RAW_APP_BASE_URL === "/" || RAW_APP_BASE_URL === "./" ? "" : RAW_APP_BASE_URL.replace(/\/+$/, "");
 
 // Resolve assets levando em conta ambientes com subpasta ou build estático.
 const withBase = (path) => {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
-  return APP_BASE_URL === "/" ? normalizedPath : `${APP_BASE_URL}${normalizedPath}`;
+  return APP_BASE_URL ? `${APP_BASE_URL}${normalizedPath}` : normalizedPath;
 };
 
-const getHomeHref = () => (APP_BASE_URL === "/" ? "/" : `${APP_BASE_URL}/`);
+const getHomeHref = () => (APP_BASE_URL ? `${APP_BASE_URL}/` : "/");
 
 const toHash = (value) => `#${value.toLowerCase().replaceAll(" ", "-")}`;
 
 // Gera links internos consistentes para home e páginas filhas.
 const getSectionHref = (sectionId, isInnerPage = false) =>
   `${isInnerPage ? getHomeHref() : ""}#${sectionId}`;
+
+const getPageHref = (slug) => `${getHomeHref()}${slug}`;
 
 const procedurePageSlugByTitle = {
   "Reabilitação Ortopédica": "reabilitacao-ortopedica",
@@ -652,7 +656,7 @@ const getProcedureHref = (title) => {
   const page = procedurePageSlugByTitle[title];
 
   if (page) {
-    return `${getHomeHref()}?page=${page}`;
+    return getPageHref(page);
   }
 
   return `#${title.toLowerCase().replaceAll(" ", "-")}`;
@@ -664,35 +668,35 @@ const pageMeta = {
     title: "Instituto Montcare | Ortopedia Resolutiva em São Paulo",
     description:
       "Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional.",
-    path: APP_BASE_URL,
+    path: getHomeHref(),
     faq: faqItems,
   },
   "reabilitacao-ortopedica": {
     title: "Reabilitação Ortopédica | Instituto Montcare",
     description:
       "Avaliação e reabilitação ortopédica com foco em recuperação de movimento, autonomia, controle da dor e retorno seguro às atividades.",
-    path: `${APP_BASE_URL}?page=reabilitacao-ortopedica`,
+    path: getPageHref("reabilitacao-ortopedica"),
     faq: rehabFaqItems,
   },
   artrodeses: {
     title: "Artrodese da Coluna | Instituto Montcare",
     description:
       "Artrodese da coluna com avaliação especializada, planejamento cirúrgico preciso e foco em estabilidade, alinhamento e recuperação funcional.",
-    path: `${APP_BASE_URL}?page=artrodeses`,
+    path: getPageHref("artrodeses"),
     faq: arthrodesisFaqItems,
   },
   infiltracoes: {
     title: "Infiltrações Ortopédicas | Instituto Montcare",
     description:
       "Infiltrações ortopédicas para controle da dor e da inflamação, com indicação individualizada e acompanhamento especializado.",
-    path: `${APP_BASE_URL}?page=infiltracoes`,
+    path: getPageHref("infiltracoes"),
     faq: infiltrationFaqItems,
   },
   "cirurgias-minimamente-invasivas": {
     title: "Cirurgias Minimamente Invasivas | Instituto Montcare",
     description:
       "Cirurgias minimamente invasivas com foco em precisão, menor agressão tecidual e recuperação funcional orientada por avaliação especializada.",
-    path: `${APP_BASE_URL}?page=cirurgias-minimamente-invasivas`,
+    path: getPageHref("cirurgias-minimamente-invasivas"),
     faq: minimallyInvasiveFaqItems,
   },
 };
