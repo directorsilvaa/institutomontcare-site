@@ -10,9 +10,20 @@ const clinic = {
   phone: "+55 11 94593-0212",
   email: "institutomontcare@gmail.com",
   address: "Av Moaci, 395, 14 andar - Sala 146",
+  locality: "São Paulo",
   region: "SP",
   country: "BR",
   shareImage: "/logo-small.webp",
+  priceRange: "$$",
+  areaServed: ["São Paulo", "Moema", "Indianópolis", "Zona Sul de São Paulo"],
+  knowsAbout: [
+    "Ortopedia resolutiva",
+    "Cirurgia da coluna",
+    "Reabilitação ortopédica",
+    "Artrodese da coluna",
+    "Infiltrações ortopédicas",
+    "Cirurgias minimamente invasivas",
+  ],
 };
 
 const pages = {
@@ -22,6 +33,9 @@ const pages = {
     title: "Instituto Montcare | Ortopedia Resolutiva em São Paulo",
     description:
       "Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional.",
+    keywords:
+      "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
+    serviceName: "Ortopedia resolutiva em São Paulo",
     faq: [
       {
         question: "O que é a medicina resolutiva oferecida pela Montcare?",
@@ -46,6 +60,9 @@ const pages = {
     title: "Reabilitação Ortopédica | Instituto Montcare",
     description:
       "Avaliação e reabilitação ortopédica com foco em recuperação de movimento, autonomia, controle da dor e retorno seguro às atividades.",
+    keywords:
+      "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
+    serviceName: "Reabilitação ortopédica",
     faq: [
       {
         question: "A reabilitação funciona para mim?",
@@ -65,6 +82,9 @@ const pages = {
     title: "Artrodese da Coluna | Instituto Montcare",
     description:
       "Artrodese da coluna com avaliação especializada, planejamento cirúrgico preciso e foco em estabilidade, alinhamento e recuperação funcional.",
+    keywords:
+      "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
+    serviceName: "Artrodese da coluna",
     faq: [
       {
         question: "O que é artrodese da coluna?",
@@ -84,6 +104,9 @@ const pages = {
     title: "Infiltrações Ortopédicas | Instituto Montcare",
     description:
       "Infiltrações ortopédicas para controle da dor e da inflamação, com indicação individualizada e acompanhamento especializado.",
+    keywords:
+      "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
+    serviceName: "Infiltrações ortopédicas",
     faq: [
       {
         question: "O que é infiltração ortopédica?",
@@ -103,6 +126,9 @@ const pages = {
     title: "Cirurgias Minimamente Invasivas | Instituto Montcare",
     description:
       "Cirurgias minimamente invasivas com foco em precisão, menor agressão tecidual e recuperação funcional orientada por avaliação especializada.",
+    keywords:
+      "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
+    serviceName: "Cirurgias minimamente invasivas",
     faq: [
       {
         question: "O que são cirurgias minimamente invasivas?",
@@ -136,7 +162,9 @@ function absoluteUrl(path) {
 }
 
 function replaceOrInsert(html, pattern, replacement) {
-  return pattern.test(html) ? html.replace(pattern, replacement) : html.replace("</head>", `    ${replacement}\n  </head>`);
+  return pattern.test(html)
+    ? html.replace(pattern, () => replacement)
+    : html.replace("</head>", () => `    ${replacement}\n  </head>`);
 }
 
 function replaceMeta(html, selector, value) {
@@ -162,34 +190,132 @@ function replaceLink(html, rel, href) {
 
 function buildStructuredData(page) {
   const url = absoluteUrl(page.path);
+  const clinicId = `${configuredSiteUrl}/#medicalclinic`;
+  const websiteId = `${configuredSiteUrl}/#website`;
+  const webpageId = `${url}#webpage`;
   const clinicSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
+    "@id": clinicId,
     name: clinic.name,
-    url,
+    url: configuredSiteUrl,
     image: absoluteUrl(clinic.shareImage),
+    logo: absoluteUrl(clinic.shareImage),
     telephone: clinic.phone,
     email: clinic.email,
-    medicalSpecialty: "Orthopedic",
+    priceRange: clinic.priceRange,
+    medicalSpecialty: ["Orthopedic", "Physiotherapy"],
+    areaServed: clinic.areaServed.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+    knowsAbout: clinic.knowsAbout,
     address: {
       "@type": "PostalAddress",
       streetAddress: clinic.address,
+      addressLocality: clinic.locality,
       addressRegion: clinic.region,
       addressCountry: clinic.country,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: clinic.phone,
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+    },
+    availableService: Object.values(pages).map((item) => ({
+      "@type": "MedicalProcedure",
+      name: item.serviceName,
+      url: absoluteUrl(item.path),
+    })),
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: clinic.name,
+    url: configuredSiteUrl,
+    inLanguage: "pt-BR",
+    publisher: {
+      "@id": clinicId,
     },
   };
 
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": webpageId,
     name: page.title,
     description: page.description,
     url,
     inLanguage: "pt-BR",
     isPartOf: {
-      "@type": "WebSite",
-      name: clinic.name,
-      url: configuredSiteUrl || "/",
+      "@id": websiteId,
+    },
+    about: {
+      "@id": clinicId,
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: absoluteUrl(clinic.shareImage),
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".rehab-hero-content p", ".faq-item", ".rehab-faq-item"],
+    },
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": page.path === "/" ? "MedicalBusiness" : "MedicalProcedure",
+    name: page.serviceName,
+    description: page.description,
+    url,
+    provider: {
+      "@id": clinicId,
+    },
+    areaServed: clinic.areaServed.map((name) => ({
+      "@type": "Place",
+      name,
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Instituto Montcare",
+        item: absoluteUrl("/"),
+      },
+      ...(page.path === "/"
+        ? []
+        : [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: page.serviceName,
+              item: url,
+            },
+          ]),
+    ],
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${configuredSiteUrl}/#organization`,
+    name: clinic.name,
+    url: configuredSiteUrl,
+    logo: absoluteUrl(clinic.shareImage),
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: clinic.phone,
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
     },
   };
 
@@ -208,7 +334,7 @@ function buildStructuredData(page) {
       }
     : null;
 
-  return [clinicSchema, webPageSchema, faqSchema].filter(Boolean);
+  return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 }
 
 function renderPage(baseHtml, page) {
@@ -224,6 +350,11 @@ function renderPage(baseHtml, page) {
   html = replaceMeta(html, { type: "name", name: "twitter:title" }, page.title);
   html = replaceMeta(html, { type: "name", name: "twitter:description" }, page.description);
   html = replaceMeta(html, { type: "name", name: "twitter:image" }, shareImageUrl);
+  html = replaceMeta(html, { type: "name", name: "keywords" }, page.keywords);
+  html = replaceMeta(html, { type: "name", name: "geo.region" }, "BR-SP");
+  html = replaceMeta(html, { type: "name", name: "geo.placename" }, `${clinic.locality}, ${clinic.region}`);
+  html = replaceMeta(html, { type: "name", name: "author" }, clinic.name);
+  html = replaceMeta(html, { type: "name", name: "language" }, "pt-BR");
   html = replaceLink(html, "canonical", pageUrl);
 
   const structuredData = JSON.stringify(buildStructuredData(page));
@@ -274,6 +405,33 @@ Allow: /
 Sitemap: ${absoluteUrl("/sitemap.xml")}
 `,
 );
+
+writeFileSync(
+  join(distDir, "llms.txt"),
+  `# Instituto Montcare
+
+Site oficial: ${configuredSiteUrl}
+Idioma principal: pt-BR
+Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas e cirurgias minimamente invasivas.
+Localização: ${clinic.address}, ${clinic.locality} - ${clinic.region}, Brasil.
+Telefone/WhatsApp: ${clinic.phone}
+E-mail: ${clinic.email}
+
+## Páginas principais
+${Object.values(pages)
+  .map((page) => `- ${page.serviceName}: ${absoluteUrl(page.path)} - ${page.description}`)
+  .join("\n")}
+
+## Respostas diretas
+- O Instituto Montcare é uma clínica em São Paulo focada em atendimento ortopédico resolutivo e humanizado.
+- A reabilitação ortopédica auxilia recuperação de movimento, autonomia, controle da dor e retorno seguro às atividades.
+- A artrodese da coluna é uma cirurgia para estabilizar segmentos específicos da coluna em casos selecionados.
+- A infiltração ortopédica pode ajudar no controle de dor e inflamação após avaliação médica.
+- Cirurgias minimamente invasivas buscam tratar quadros ortopédicos com menor agressão tecidual quando bem indicadas.
+`,
+);
+
+writeFileSync(join(distDir, "CNAME"), "institutomontcare.com.br\n");
 
 writeFileSync(
   join(distDir, ".htaccess"),

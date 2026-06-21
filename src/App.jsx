@@ -623,6 +623,9 @@ const CLINIC_NAME = "Instituto Montcare";
 const CLINIC_PHONE = "+55 11 94593-0212";
 const CLINIC_EMAIL = "institutomontcare@gmail.com";
 const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 146";
+const CLINIC_LOCALITY = "São Paulo";
+const CLINIC_REGION = "SP";
+const CLINIC_COUNTRY = "BR";
 const DEFAULT_SHARE_IMAGE = "/logo-small.webp";
 const RAW_APP_BASE_URL = import.meta.env.BASE_URL || "/";
 const APP_BASE_URL =
@@ -669,6 +672,9 @@ const pageMeta = {
     description:
       "Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional.",
     path: getHomeHref(),
+    keywords:
+      "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
+    serviceName: "Ortopedia resolutiva em São Paulo",
     faq: faqItems,
   },
   "reabilitacao-ortopedica": {
@@ -676,6 +682,9 @@ const pageMeta = {
     description:
       "Avaliação e reabilitação ortopédica com foco em recuperação de movimento, autonomia, controle da dor e retorno seguro às atividades.",
     path: getPageHref("reabilitacao-ortopedica"),
+    keywords:
+      "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
+    serviceName: "Reabilitação ortopédica",
     faq: rehabFaqItems,
   },
   artrodeses: {
@@ -683,6 +692,9 @@ const pageMeta = {
     description:
       "Artrodese da coluna com avaliação especializada, planejamento cirúrgico preciso e foco em estabilidade, alinhamento e recuperação funcional.",
     path: getPageHref("artrodeses"),
+    keywords:
+      "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
+    serviceName: "Artrodese da coluna",
     faq: arthrodesisFaqItems,
   },
   infiltracoes: {
@@ -690,6 +702,9 @@ const pageMeta = {
     description:
       "Infiltrações ortopédicas para controle da dor e da inflamação, com indicação individualizada e acompanhamento especializado.",
     path: getPageHref("infiltracoes"),
+    keywords:
+      "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
+    serviceName: "Infiltrações ortopédicas",
     faq: infiltrationFaqItems,
   },
   "cirurgias-minimamente-invasivas": {
@@ -697,6 +712,9 @@ const pageMeta = {
     description:
       "Cirurgias minimamente invasivas com foco em precisão, menor agressão tecidual e recuperação funcional orientada por avaliação especializada.",
     path: getPageHref("cirurgias-minimamente-invasivas"),
+    keywords:
+      "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
+    serviceName: "Cirurgias minimamente invasivas",
     faq: minimallyInvasiveFaqItems,
   },
 };
@@ -731,36 +749,140 @@ function ensureLink(selector, attributes) {
 function buildStructuredData(meta) {
   const origin = window.location.origin;
   const url = `${origin}${meta.path}`;
+  const clinicId = `${origin}/#medicalclinic`;
+  const websiteId = `${origin}/#website`;
+  const pageId = `${url}#webpage`;
+  const areaServed = ["São Paulo", "Moema", "Indianópolis", "Zona Sul de São Paulo"].map((name) => ({
+    "@type": "Place",
+    name,
+  }));
+  const knowsAbout = [
+    "Ortopedia resolutiva",
+    "Cirurgia da coluna",
+    "Reabilitação ortopédica",
+    "Artrodese da coluna",
+    "Infiltrações ortopédicas",
+    "Cirurgias minimamente invasivas",
+  ];
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${origin}/#organization`,
+    name: CLINIC_NAME,
+    url: origin,
+    logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CLINIC_PHONE,
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+    },
+  };
 
   const clinicSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
+    "@id": clinicId,
     name: CLINIC_NAME,
-    url,
+    url: origin,
     image: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+    logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
     telephone: CLINIC_PHONE,
     email: CLINIC_EMAIL,
-    medicalSpecialty: "Orthopedic",
+    priceRange: "$$",
+    medicalSpecialty: ["Orthopedic", "Physiotherapy"],
+    areaServed,
+    knowsAbout,
     address: {
       "@type": "PostalAddress",
       streetAddress: CLINIC_ADDRESS,
-      addressRegion: "SP",
-      addressCountry: "BR",
+      addressLocality: CLINIC_LOCALITY,
+      addressRegion: CLINIC_REGION,
+      addressCountry: CLINIC_COUNTRY,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: CLINIC_PHONE,
+      contactType: "customer service",
+      availableLanguage: "Portuguese",
+    },
+    availableService: Object.values(pageMeta).map((item) => ({
+      "@type": "MedicalProcedure",
+      name: item.serviceName,
+      url: `${origin}${item.path}`,
+    })),
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: CLINIC_NAME,
+    url: origin,
+    inLanguage: "pt-BR",
+    publisher: {
+      "@id": clinicId,
     },
   };
 
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": pageId,
     name: meta.title,
     description: meta.description,
     url,
     inLanguage: "pt-BR",
     isPartOf: {
-      "@type": "WebSite",
-      name: CLINIC_NAME,
-      url: origin,
+      "@id": websiteId,
     },
+    about: {
+      "@id": clinicId,
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+    },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", ".rehab-hero-content p", ".faq-item", ".rehab-faq-item"],
+    },
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": meta.path === getHomeHref() ? "MedicalBusiness" : "MedicalProcedure",
+    name: meta.serviceName,
+    description: meta.description,
+    url,
+    provider: {
+      "@id": clinicId,
+    },
+    areaServed,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: CLINIC_NAME,
+        item: `${origin}${getHomeHref()}`,
+      },
+      ...(meta.path === getHomeHref()
+        ? []
+        : [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: meta.serviceName,
+              item: url,
+            },
+          ]),
+    ],
   };
 
   const faqSchema = meta.faq?.length
@@ -778,7 +900,7 @@ function buildStructuredData(meta) {
       }
     : null;
 
-  return [clinicSchema, webPageSchema, faqSchema].filter(Boolean);
+  return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 }
 
 // Header global com navegação desktop, dropdown de procedimentos e drawer mobile.
@@ -2131,6 +2253,14 @@ function App() {
       name: "googlebot",
       content: "index, follow, max-image-preview:large",
     });
+    ensureMeta('meta[name="keywords"]', { name: "keywords", content: meta.keywords });
+    ensureMeta('meta[name="geo.region"]', { name: "geo.region", content: "BR-SP" });
+    ensureMeta('meta[name="geo.placename"]', {
+      name: "geo.placename",
+      content: `${CLINIC_LOCALITY}, ${CLINIC_REGION}`,
+    });
+    ensureMeta('meta[name="author"]', { name: "author", content: CLINIC_NAME });
+    ensureMeta('meta[name="language"]', { name: "language", content: "pt-BR" });
     ensureMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
     ensureMeta('meta[property="og:locale"]', { property: "og:locale", content: "pt_BR" });
     ensureMeta('meta[property="og:site_name"]', { property: "og:site_name", content: CLINIC_NAME });
