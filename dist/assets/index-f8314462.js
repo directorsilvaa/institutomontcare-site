@@ -8143,7 +8143,7 @@ const withBase = (path) => {
 };
 const getHomeHref = () => "/";
 const getSectionHref = (sectionId, isInnerPage = false) => `${isInnerPage ? getHomeHref() : ""}#${sectionId}`;
-const getPageHref = (slug) => `${getHomeHref()}${slug}`;
+const getPageHref = (slug) => `${getHomeHref()}${slug}/`;
 const procedurePageSlugByTitle = {
   "Reabilitação Ortopédica": "reabilitacao-ortopedica",
   Artrodeses: "artrodeses",
@@ -8164,6 +8164,28 @@ const pageMeta = {
     path: getHomeHref(),
     keywords: "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
     serviceName: "Ortopedia resolutiva em São Paulo",
+    seoContent: {
+      eyebrow: "Resumo para pacientes",
+      title: "O que é o Instituto Montcare?",
+      paragraphs: [
+        "O Instituto Montcare é uma clínica ortopédica em São Paulo focada em medicina resolutiva, atendimento humanizado e cuidado integrado para dor, mobilidade e recuperação funcional.",
+        "A equipe atua com tratamentos conservadores, reabilitação funcional, infiltrações ortopédicas, cirurgias minimamente invasivas, cirurgia da coluna e especialidades complementares."
+      ],
+      answers: [
+        {
+          question: "Onde o Instituto Montcare atende?",
+          answer: "O atendimento acontece em São Paulo, na região de Moema e Indianópolis, com foco em pacientes que buscam avaliação ortopédica e acompanhamento especializado."
+        },
+        {
+          question: "Quando procurar atendimento ortopédico?",
+          answer: "Procure avaliação quando houver dor persistente na coluna, articulações, joelho, ombro, quadril, mão, pé ou tornozelo, perda de mobilidade ou limitação nas atividades diárias."
+        },
+        {
+          question: "Quais são os diferenciais da clínica?",
+          answer: "O cuidado combina diagnóstico preciso, indicação terapêutica responsável, acompanhamento multidisciplinar e procedimentos modernos quando bem indicados."
+        }
+      ]
+    },
     faq: faqItems
   },
   "reabilitacao-ortopedica": {
@@ -8172,6 +8194,24 @@ const pageMeta = {
     path: getPageHref("reabilitacao-ortopedica"),
     keywords: "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
     serviceName: "Reabilitação ortopédica",
+    seoContent: {
+      eyebrow: "Resumo do tratamento",
+      title: "Para que serve a reabilitação ortopédica?",
+      paragraphs: [
+        "A reabilitação ortopédica auxilia pacientes com dores persistentes, lesões, limitações funcionais ou recuperação pós-cirúrgica.",
+        "O plano é individualizado e acompanha metas de controle da dor, ganho de mobilidade, fortalecimento e retorno seguro às atividades."
+      ],
+      answers: [
+        {
+          question: "Como funciona o processo?",
+          answer: "O processo passa por agendamento, avaliação médica personalizada, elaboração do plano terapêutico e acompanhamento contínuo da evolução."
+        },
+        {
+          question: "Quais benefícios podem ser esperados?",
+          answer: "A reabilitação pode favorecer recuperação da função articular e muscular, redução de dor e rigidez, melhora de equilíbrio e prevenção de recidivas."
+        }
+      ]
+    },
     faq: rehabFaqItems
   },
   artrodeses: {
@@ -8180,6 +8220,24 @@ const pageMeta = {
     path: getPageHref("artrodeses"),
     keywords: "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
     serviceName: "Artrodese da coluna",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "O que é artrodese da coluna?",
+      paragraphs: [
+        "A artrodese da coluna é uma cirurgia indicada em casos selecionados de instabilidade, deformidade, degeneração avançada ou compressões que exigem estabilização estrutural.",
+        "No Instituto Montcare, a indicação considera avaliação clínica, exames e planejamento para reduzir dor, proteger estruturas nervosas e favorecer recuperação segura."
+      ],
+      answers: [
+        {
+          question: "Quando a artrodese pode ser indicada?",
+          answer: "A indicação depende dos sintomas, exames de imagem, instabilidade, deformidade, degeneração e impacto funcional de cada paciente."
+        },
+        {
+          question: "Qual é o objetivo da cirurgia?",
+          answer: "O objetivo é estabilizar segmentos específicos da coluna, reduzir dor associada à instabilidade e permitir retorno funcional progressivo."
+        }
+      ]
+    },
     faq: arthrodesisFaqItems
   },
   infiltracoes: {
@@ -8188,6 +8246,24 @@ const pageMeta = {
     path: getPageHref("infiltracoes"),
     keywords: "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
     serviceName: "Infiltrações ortopédicas",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "Para que servem as infiltrações ortopédicas?",
+      paragraphs: [
+        "As infiltrações ortopédicas podem auxiliar no controle da dor e da inflamação em articulações, tendões ou coluna, sempre após avaliação médica.",
+        "A decisão considera a origem da dor, intensidade dos sintomas, região acometida e objetivos terapêuticos do paciente."
+      ],
+      answers: [
+        {
+          question: "Quando a infiltração pode ser indicada?",
+          answer: "A indicação acontece quando a avaliação clínica identifica benefício possível para controle local de dor ou inflamação."
+        },
+        {
+          question: "O procedimento substitui acompanhamento médico?",
+          answer: "Não. A infiltração faz parte de uma estratégia terapêutica e precisa de acompanhamento para avaliar resposta e próximos passos."
+        }
+      ]
+    },
     faq: infiltrationFaqItems
   },
   "cirurgias-minimamente-invasivas": {
@@ -8196,6 +8272,24 @@ const pageMeta = {
     path: getPageHref("cirurgias-minimamente-invasivas"),
     keywords: "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
     serviceName: "Cirurgias minimamente invasivas",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "O que são cirurgias minimamente invasivas?",
+      paragraphs: [
+        "Cirurgias minimamente invasivas utilizam abordagens modernas para tratar quadros ortopédicos com menor agressão tecidual, pequenas incisões e planejamento técnico individualizado.",
+        "Cada procedimento é indicado conforme diagnóstico, biomecânica da lesão, limitações funcionais e expectativas do paciente."
+      ],
+      answers: [
+        {
+          question: "Todo caso pode ser minimamente invasivo?",
+          answer: "Não. A indicação depende do diagnóstico, exames, limitações funcionais e avaliação médica individualizada."
+        },
+        {
+          question: "Qual é o foco da técnica?",
+          answer: "O foco é tratar com precisão, reduzir agressões desnecessárias quando possível e favorecer recuperação funcional orientada."
+        }
+      ]
+    },
     faq: minimallyInvasiveFaqItems
   }
 };
@@ -8363,6 +8457,22 @@ function buildStructuredData(meta, siteOrigin) {
     }))
   } : null;
   return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+}
+function SeoContentBlock({ meta }) {
+  if (!(meta == null ? void 0 : meta.seoContent)) {
+    return null;
+  }
+  const { seoContent } = meta;
+  const titleId = `${meta.path.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-seo-title`;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "seo-content-section", "aria-labelledby": titleId, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "seo-content-shell", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "seo-content-eyebrow", children: seoContent.eyebrow }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { id: titleId, children: seoContent.title }),
+    seoContent.paragraphs.map((paragraph) => /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: paragraph }, paragraph)),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "seo-answer-grid", children: seoContent.answers.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("article", { className: "seo-answer-card", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: item.question }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: item.answer })
+    ] }, item.question)) })
+  ] }) });
 }
 function Header({ isInnerPage = false }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = reactExports.useState(false);
@@ -8795,6 +8905,7 @@ function HomePage() {
         ] })
       ] }, `${item.name}-${index}`)) }) })
     ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SeoContentBlock, { meta: pageMeta.home }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
@@ -8871,6 +8982,7 @@ function RehabPage() {
       ] }, item.question)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "rehab-inline-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", children: "Agendar minha avaliação" })
     ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SeoContentBlock, { meta: pageMeta["reabilitacao-ortopedica"] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { isInnerPage: true })
   ] });
 }
@@ -8947,6 +9059,7 @@ function ArthrodesisPage() {
       ] }, item.question)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "rehab-inline-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", children: "Agendar minha avaliação" })
     ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SeoContentBlock, { meta: pageMeta.artrodeses }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { isInnerPage: true })
   ] });
 }
@@ -9023,6 +9136,7 @@ function InfiltrationsPage() {
       ] }, item.question)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "rehab-inline-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", children: "Agendar minha avaliação" })
     ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SeoContentBlock, { meta: pageMeta.infiltracoes }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { isInnerPage: true })
   ] });
 }
@@ -9099,6 +9213,7 @@ function MinimallyInvasivePage() {
       ] }, item.question)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "rehab-inline-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", children: "Agendar minha avaliação" })
     ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SeoContentBlock, { meta: pageMeta["cirurgias-minimamente-invasivas"] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { isInnerPage: true })
   ] });
 }

@@ -646,7 +646,7 @@ const toHash = (value) => `#${value.toLowerCase().replaceAll(" ", "-")}`;
 const getSectionHref = (sectionId, isInnerPage = false) =>
   `${isInnerPage ? getHomeHref() : ""}#${sectionId}`;
 
-const getPageHref = (slug) => `${getHomeHref()}${slug}`;
+const getPageHref = (slug) => `${getHomeHref()}${slug}/`;
 
 const procedurePageSlugByTitle = {
   "Reabilitação Ortopédica": "reabilitacao-ortopedica",
@@ -675,6 +675,31 @@ export const pageMeta = {
     keywords:
       "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
     serviceName: "Ortopedia resolutiva em São Paulo",
+    seoContent: {
+      eyebrow: "Resumo para pacientes",
+      title: "O que é o Instituto Montcare?",
+      paragraphs: [
+        "O Instituto Montcare é uma clínica ortopédica em São Paulo focada em medicina resolutiva, atendimento humanizado e cuidado integrado para dor, mobilidade e recuperação funcional.",
+        "A equipe atua com tratamentos conservadores, reabilitação funcional, infiltrações ortopédicas, cirurgias minimamente invasivas, cirurgia da coluna e especialidades complementares.",
+      ],
+      answers: [
+        {
+          question: "Onde o Instituto Montcare atende?",
+          answer:
+            "O atendimento acontece em São Paulo, na região de Moema e Indianópolis, com foco em pacientes que buscam avaliação ortopédica e acompanhamento especializado.",
+        },
+        {
+          question: "Quando procurar atendimento ortopédico?",
+          answer:
+            "Procure avaliação quando houver dor persistente na coluna, articulações, joelho, ombro, quadril, mão, pé ou tornozelo, perda de mobilidade ou limitação nas atividades diárias.",
+        },
+        {
+          question: "Quais são os diferenciais da clínica?",
+          answer:
+            "O cuidado combina diagnóstico preciso, indicação terapêutica responsável, acompanhamento multidisciplinar e procedimentos modernos quando bem indicados.",
+        },
+      ],
+    },
     faq: faqItems,
   },
   "reabilitacao-ortopedica": {
@@ -685,6 +710,26 @@ export const pageMeta = {
     keywords:
       "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
     serviceName: "Reabilitação ortopédica",
+    seoContent: {
+      eyebrow: "Resumo do tratamento",
+      title: "Para que serve a reabilitação ortopédica?",
+      paragraphs: [
+        "A reabilitação ortopédica auxilia pacientes com dores persistentes, lesões, limitações funcionais ou recuperação pós-cirúrgica.",
+        "O plano é individualizado e acompanha metas de controle da dor, ganho de mobilidade, fortalecimento e retorno seguro às atividades.",
+      ],
+      answers: [
+        {
+          question: "Como funciona o processo?",
+          answer:
+            "O processo passa por agendamento, avaliação médica personalizada, elaboração do plano terapêutico e acompanhamento contínuo da evolução.",
+        },
+        {
+          question: "Quais benefícios podem ser esperados?",
+          answer:
+            "A reabilitação pode favorecer recuperação da função articular e muscular, redução de dor e rigidez, melhora de equilíbrio e prevenção de recidivas.",
+        },
+      ],
+    },
     faq: rehabFaqItems,
   },
   artrodeses: {
@@ -695,6 +740,26 @@ export const pageMeta = {
     keywords:
       "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
     serviceName: "Artrodese da coluna",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "O que é artrodese da coluna?",
+      paragraphs: [
+        "A artrodese da coluna é uma cirurgia indicada em casos selecionados de instabilidade, deformidade, degeneração avançada ou compressões que exigem estabilização estrutural.",
+        "No Instituto Montcare, a indicação considera avaliação clínica, exames e planejamento para reduzir dor, proteger estruturas nervosas e favorecer recuperação segura.",
+      ],
+      answers: [
+        {
+          question: "Quando a artrodese pode ser indicada?",
+          answer:
+            "A indicação depende dos sintomas, exames de imagem, instabilidade, deformidade, degeneração e impacto funcional de cada paciente.",
+        },
+        {
+          question: "Qual é o objetivo da cirurgia?",
+          answer:
+            "O objetivo é estabilizar segmentos específicos da coluna, reduzir dor associada à instabilidade e permitir retorno funcional progressivo.",
+        },
+      ],
+    },
     faq: arthrodesisFaqItems,
   },
   infiltracoes: {
@@ -705,6 +770,26 @@ export const pageMeta = {
     keywords:
       "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
     serviceName: "Infiltrações ortopédicas",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "Para que servem as infiltrações ortopédicas?",
+      paragraphs: [
+        "As infiltrações ortopédicas podem auxiliar no controle da dor e da inflamação em articulações, tendões ou coluna, sempre após avaliação médica.",
+        "A decisão considera a origem da dor, intensidade dos sintomas, região acometida e objetivos terapêuticos do paciente.",
+      ],
+      answers: [
+        {
+          question: "Quando a infiltração pode ser indicada?",
+          answer:
+            "A indicação acontece quando a avaliação clínica identifica benefício possível para controle local de dor ou inflamação.",
+        },
+        {
+          question: "O procedimento substitui acompanhamento médico?",
+          answer:
+            "Não. A infiltração faz parte de uma estratégia terapêutica e precisa de acompanhamento para avaliar resposta e próximos passos.",
+        },
+      ],
+    },
     faq: infiltrationFaqItems,
   },
   "cirurgias-minimamente-invasivas": {
@@ -715,6 +800,26 @@ export const pageMeta = {
     keywords:
       "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
     serviceName: "Cirurgias minimamente invasivas",
+    seoContent: {
+      eyebrow: "Resumo do procedimento",
+      title: "O que são cirurgias minimamente invasivas?",
+      paragraphs: [
+        "Cirurgias minimamente invasivas utilizam abordagens modernas para tratar quadros ortopédicos com menor agressão tecidual, pequenas incisões e planejamento técnico individualizado.",
+        "Cada procedimento é indicado conforme diagnóstico, biomecânica da lesão, limitações funcionais e expectativas do paciente.",
+      ],
+      answers: [
+        {
+          question: "Todo caso pode ser minimamente invasivo?",
+          answer:
+            "Não. A indicação depende do diagnóstico, exames, limitações funcionais e avaliação médica individualizada.",
+        },
+        {
+          question: "Qual é o foco da técnica?",
+          answer:
+            "O foco é tratar com precisão, reduzir agressões desnecessárias quando possível e favorecer recuperação funcional orientada.",
+        },
+      ],
+    },
     faq: minimallyInvasiveFaqItems,
   },
 };
@@ -901,6 +1006,37 @@ export function buildStructuredData(meta, siteOrigin) {
     : null;
 
   return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+}
+
+function SeoContentBlock({ meta }) {
+  if (!meta?.seoContent) {
+    return null;
+  }
+
+  const { seoContent } = meta;
+  const titleId = `${meta.path.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "home"}-seo-title`;
+
+  return (
+    <section className="seo-content-section" aria-labelledby={titleId}>
+      <div className="seo-content-shell">
+        <span className="seo-content-eyebrow">{seoContent.eyebrow}</span>
+        <h2 id={titleId}>{seoContent.title}</h2>
+
+        {seoContent.paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+
+        <div className="seo-answer-grid">
+          {seoContent.answers.map((item) => (
+            <article key={item.question} className="seo-answer-card">
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 // Header global com navegação desktop, dropdown de procedimentos e drawer mobile.
@@ -1461,6 +1597,7 @@ function HomePage() {
         </div>
       </section>
 
+      <SeoContentBlock meta={pageMeta.home} />
       <Footer />
     </div>
   );
@@ -1651,6 +1788,7 @@ function RehabPage() {
         </div>
       </section>
 
+      <SeoContentBlock meta={pageMeta["reabilitacao-ortopedica"]} />
       <Footer isInnerPage />
     </div>
   );
@@ -1839,6 +1977,7 @@ function ArthrodesisPage() {
         </div>
       </section>
 
+      <SeoContentBlock meta={pageMeta.artrodeses} />
       <Footer isInnerPage />
     </div>
   );
@@ -2025,6 +2164,7 @@ function InfiltrationsPage() {
         </div>
       </section>
 
+      <SeoContentBlock meta={pageMeta.infiltracoes} />
       <Footer isInnerPage />
     </div>
   );
@@ -2213,6 +2353,7 @@ function MinimallyInvasivePage() {
         </div>
       </section>
 
+      <SeoContentBlock meta={pageMeta["cirurgias-minimamente-invasivas"]} />
       <Footer isInnerPage />
     </div>
   );
@@ -2221,10 +2362,10 @@ function MinimallyInvasivePage() {
 // Roteamento leve por query string/pathname e hidratação dos metadados da página atual.
 export const staticRoutes = [
   { key: "home", path: "/" },
-  { key: "reabilitacao-ortopedica", path: "/reabilitacao-ortopedica" },
-  { key: "artrodeses", path: "/artrodeses" },
-  { key: "infiltracoes", path: "/infiltracoes" },
-  { key: "cirurgias-minimamente-invasivas", path: "/cirurgias-minimamente-invasivas" },
+  { key: "reabilitacao-ortopedica", path: "/reabilitacao-ortopedica/" },
+  { key: "artrodeses", path: "/artrodeses/" },
+  { key: "infiltracoes", path: "/infiltracoes/" },
+  { key: "cirurgias-minimamente-invasivas", path: "/cirurgias-minimamente-invasivas/" },
 ];
 
 function App({ initialPage } = {}) {
