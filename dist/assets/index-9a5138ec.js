@@ -8223,7 +8223,7 @@ function buildStructuredData(meta) {
   var _a;
   const origin = window.location.origin;
   const url = `${origin}${meta.path}`;
-  const clinicId = `${origin}/#medicalclinic`;
+  const clinicId = `${origin}/#clinic`;
   const websiteId = `${origin}/#website`;
   const pageId = `${url}#webpage`;
   const areaServed = ["São Paulo", "Moema", "Indianópolis", "Zona Sul de São Paulo"].map((name) => ({
@@ -9155,7 +9155,7 @@ function App() {
       schemaScript.setAttribute("type", "application/ld+json");
       document.head.appendChild(schemaScript);
     }
-    schemaScript.textContent = JSON.stringify(buildStructuredData(meta));
+    schemaScript.textContent = JSON.stringify(buildStructuredData(meta)).replace(/</g, "\\u003c");
   }, [currentMetaKey]);
   reactExports.useEffect(() => {
     const animatedSelectors = [

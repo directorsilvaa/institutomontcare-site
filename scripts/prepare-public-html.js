@@ -36,6 +36,36 @@ const pages = {
     keywords:
       "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
     serviceName: "Ortopedia resolutiva em São Paulo",
+    staticContent: {
+      eyebrow: "Instituto Montcare",
+      heading: "Ortopedia resolutiva para mais mobilidade e qualidade de vida.",
+      paragraphs: [
+        "O Instituto Montcare oferece atendimento ortopédico resolutivo em São Paulo, com avaliação cuidadosa, indicação responsável e foco em recuperar movimento, autonomia e qualidade de vida.",
+        "A clínica reúne ortopedia, cirurgia da coluna, reabilitação, infiltrações, cirurgias minimamente invasivas e especialidades integradas para cuidar do paciente em todas as etapas do tratamento.",
+      ],
+      sections: [
+        {
+          heading: "Quem somos",
+          text: "Diretores com autoridade técnica em ortopedia e cirurgia da coluna conduzem o cuidado com diagnóstico preciso, clareza e continuidade terapêutica.",
+        },
+        {
+          heading: "Soluções na saúde",
+          text: "Atuação em saúde da coluna, reabilitação e performance, ortopedia de especialidade, metabolismo, nutrição, saúde da mulher e cuidado infectológico.",
+        },
+        {
+          heading: "Onde atende",
+          text: "O Instituto Montcare atende em São Paulo, na região de Moema e Indianópolis, com foco em pacientes que buscam cuidado ortopédico resolutivo.",
+        },
+        {
+          heading: "Quando procurar atendimento ortopédico",
+          text: "Procure avaliação ortopédica quando houver dor persistente na coluna, articulações, joelho, ombro, quadril, mão, pé ou tornozelo, perda de mobilidade ou limitação para atividades diárias.",
+        },
+        {
+          heading: "Diferenciais da clínica",
+          text: "A medicina resolutiva combina diagnóstico preciso, indicação terapêutica responsável, tratamentos conservadores, reabilitação funcional e procedimentos minimamente invasivos quando bem indicados.",
+        },
+      ],
+    },
     faq: [
       {
         question: "O que é a medicina resolutiva oferecida pela Montcare?",
@@ -63,6 +93,24 @@ const pages = {
     keywords:
       "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
     serviceName: "Reabilitação ortopédica",
+    staticContent: {
+      eyebrow: "Reabilitação ortopédica",
+      heading: "Reabilitação ortopédica com foco em recuperação de movimento e autonomia",
+      paragraphs: [
+        "A reabilitação ortopédica do Instituto Montcare é indicada para pacientes com dores persistentes, limitações funcionais, lesões ortopédicas ou recuperação pós-cirúrgica.",
+        "O plano terapêutico é individualizado e acompanha metas funcionais claras, controle da dor, ganho de mobilidade, fortalecimento e retorno seguro às atividades.",
+      ],
+      sections: [
+        {
+          heading: "Como funciona",
+          text: "O processo passa por agendamento, avaliação médica personalizada, elaboração do plano terapêutico e acompanhamento contínuo.",
+        },
+        {
+          heading: "Benefícios esperados",
+          text: "Recuperação da função articular e muscular, redução de dor e rigidez, melhora de equilíbrio e prevenção de recidivas.",
+        },
+      ],
+    },
     faq: [
       {
         question: "A reabilitação funciona para mim?",
@@ -85,6 +133,24 @@ const pages = {
     keywords:
       "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
     serviceName: "Artrodese da coluna",
+    staticContent: {
+      eyebrow: "Artrodese da coluna",
+      heading: "Artrodese da coluna com planejamento especializado e recuperação funcional",
+      paragraphs: [
+        "A artrodese da coluna é uma cirurgia indicada em casos selecionados de instabilidade, deformidade, degeneração avançada ou compressões que exigem estabilização estrutural.",
+        "No Instituto Montcare, a indicação é feita com avaliação clínica cuidadosa, análise de exames e planejamento para reduzir dor, proteger estruturas nervosas e favorecer recuperação segura.",
+      ],
+      sections: [
+        {
+          heading: "Como funciona",
+          text: "O cuidado inclui agendamento, avaliação personalizada, realização da artrodese quando indicada e acompanhamento pós-operatório.",
+        },
+        {
+          heading: "Benefícios esperados",
+          text: "Estabilização da coluna, melhora do alinhamento, redução de dor associada à instabilidade e retorno funcional progressivo.",
+        },
+      ],
+    },
     faq: [
       {
         question: "O que é artrodese da coluna?",
@@ -107,6 +173,24 @@ const pages = {
     keywords:
       "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
     serviceName: "Infiltrações ortopédicas",
+    staticContent: {
+      eyebrow: "Infiltrações ortopédicas",
+      heading: "Infiltrações ortopédicas para controle da dor com indicação individualizada",
+      paragraphs: [
+        "As infiltrações ortopédicas podem auxiliar no controle da dor e da inflamação em articulações, tendões ou coluna, sempre após avaliação médica.",
+        "A decisão considera origem da dor, intensidade dos sintomas, região acometida e objetivos terapêuticos do paciente, com foco em funcionalidade e segurança.",
+      ],
+      sections: [
+        {
+          heading: "Como funciona",
+          text: "O processo inclui avaliação especializada, definição diagnóstica, realização do procedimento quando indicado e acompanhamento da resposta clínica.",
+        },
+        {
+          heading: "Benefícios esperados",
+          text: "Redução local da dor e inflamação, melhora da mobilidade e orientação para retorno às atividades.",
+        },
+      ],
+    },
     faq: [
       {
         question: "O que é infiltração ortopédica?",
@@ -129,6 +213,24 @@ const pages = {
     keywords:
       "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
     serviceName: "Cirurgias minimamente invasivas",
+    staticContent: {
+      eyebrow: "Cirurgias minimamente invasivas",
+      heading: "Cirurgias minimamente invasivas com foco em precisão e recuperação funcional",
+      paragraphs: [
+        "As cirurgias minimamente invasivas utilizam abordagens modernas para tratar quadros ortopédicos com menor agressão tecidual, pequenas incisões e planejamento técnico individualizado.",
+        "No Instituto Montcare, cada procedimento é indicado conforme diagnóstico, biomecânica da lesão, limitações funcionais e expectativas do paciente.",
+      ],
+      sections: [
+        {
+          heading: "Como funciona",
+          text: "O cuidado envolve avaliação médica, análise de exames, planejamento cirúrgico, procedimento e acompanhamento pós-operatório.",
+        },
+        {
+          heading: "Benefícios esperados",
+          text: "Menor trauma local em casos bem indicados, recuperação funcional orientada, precisão técnica e retorno progressivo à rotina.",
+        },
+      ],
+    },
     faq: [
       {
         question: "O que são cirurgias minimamente invasivas?",
@@ -190,7 +292,7 @@ function replaceLink(html, rel, href) {
 
 function buildStructuredData(page) {
   const url = absoluteUrl(page.path);
-  const clinicId = `${configuredSiteUrl}/#medicalclinic`;
+  const clinicId = `${configuredSiteUrl}/#clinic`;
   const websiteId = `${configuredSiteUrl}/#website`;
   const webpageId = `${url}#webpage`;
   const clinicSchema = {
@@ -337,6 +439,47 @@ function buildStructuredData(page) {
   return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 }
 
+function renderStaticContent(page) {
+  const content = page.staticContent;
+
+  if (!content) {
+    return "";
+  }
+
+  const paragraphs = content.paragraphs
+    .map((paragraph) => `        <p>${escapeHtml(paragraph)}</p>`)
+    .join("\n");
+  const sections = content.sections
+    .map(
+      (section) => `        <section>
+          <h2>${escapeHtml(section.heading)}</h2>
+          <p>${escapeHtml(section.text)}</p>
+        </section>`,
+    )
+    .join("\n");
+  const faq = page.faq?.length
+    ? `        <section>
+          <h2>Perguntas frequentes</h2>
+          ${page.faq
+            .map(
+              (item) => `<article>
+            <h3>${escapeHtml(item.question)}</h3>
+            <p>${escapeHtml(item.answer)}</p>
+          </article>`,
+            )
+            .join("\n          ")}
+        </section>`
+    : "";
+
+  return `<main class="seo-static-content" data-static-seo-content>
+        <p>${escapeHtml(content.eyebrow)}</p>
+        <h1>${escapeHtml(content.heading)}</h1>
+${paragraphs}
+${sections}
+${faq}
+      </main>`;
+}
+
 function renderPage(baseHtml, page) {
   const pageUrl = absoluteUrl(page.path);
   const shareImageUrl = absoluteUrl(clinic.shareImage);
@@ -357,13 +500,14 @@ function renderPage(baseHtml, page) {
   html = replaceMeta(html, { type: "name", name: "language" }, "pt-BR");
   html = replaceLink(html, "canonical", pageUrl);
 
-  const structuredData = JSON.stringify(buildStructuredData(page));
+  const structuredData = JSON.stringify(buildStructuredData(page)).replace(/</g, "\\u003c");
   const schemaTag = `<script id="structured-data" type="application/ld+json">${structuredData}</script>`;
   html = replaceOrInsert(
     html,
     /<script\s+id="structured-data"\s+type="application\/ld\+json">.*?<\/script>/is,
     schemaTag,
   );
+  html = html.replace(/<div id="root">.*?<\/div>/is, `<div id="root">\n      ${renderStaticContent(page)}\n    </div>`);
 
   return html;
 }
