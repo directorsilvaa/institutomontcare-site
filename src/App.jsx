@@ -666,7 +666,7 @@ const getProcedureHref = (title) => {
 };
 
 // Metadados dinâmicos usados por SEO, compartilhamento e schema.org.
-const pageMeta = {
+export const pageMeta = {
   home: {
     title: "Instituto Montcare | Ortopedia Resolutiva em São Paulo",
     description:
@@ -746,8 +746,8 @@ function ensureLink(selector, attributes) {
 }
 
 // Monta o conjunto de dados estruturados para melhorar indexação e rich results.
-function buildStructuredData(meta) {
-  const origin = window.location.origin;
+export function buildStructuredData(meta, siteOrigin) {
+  const origin = siteOrigin || (typeof window !== "undefined" ? window.location.origin : "https://institutomontcare.com.br");
   const url = `${origin}${meta.path}`;
   const clinicId = `${origin}/#clinic`;
   const websiteId = `${origin}/#website`;
@@ -926,7 +926,7 @@ function Header({ isInnerPage = false }) {
           width="205"
           height="64"
           decoding="async"
-          fetchPriority="high"
+          fetchpriority="high"
         />
       </a>
 
@@ -1198,7 +1198,7 @@ function HomePage() {
             alt=""
             width="1920"
             height="1080"
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
           />
         </picture>
@@ -2219,10 +2219,19 @@ function MinimallyInvasivePage() {
 }
 
 // Roteamento leve por query string/pathname e hidratação dos metadados da página atual.
-function App() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
-  const searchParams = new URLSearchParams(window.location.search);
-  const page = searchParams.get("page");
+export const staticRoutes = [
+  { key: "home", path: "/" },
+  { key: "reabilitacao-ortopedica", path: "/reabilitacao-ortopedica" },
+  { key: "artrodeses", path: "/artrodeses" },
+  { key: "infiltracoes", path: "/infiltracoes" },
+  { key: "cirurgias-minimamente-invasivas", path: "/cirurgias-minimamente-invasivas" },
+];
+
+function App({ initialPage } = {}) {
+  const hasWindow = typeof window !== "undefined";
+  const pathname = hasWindow ? window.location.pathname.replace(/\/+$/, "") || "/" : "/";
+  const searchParams = hasWindow ? new URLSearchParams(window.location.search) : new URLSearchParams();
+  const page = initialPage || searchParams.get("page");
   const isRehabPage = page === "reabilitacao-ortopedica" || pathname.endsWith("/reabilitacao-ortopedica");
   const isArthrodesisPage = page === "artrodeses" || pathname.endsWith("/artrodeses");
   const isInfiltrationPage = page === "infiltracoes" || pathname.endsWith("/infiltracoes");

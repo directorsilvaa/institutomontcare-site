@@ -8219,9 +8219,9 @@ function ensureLink(selector, attributes) {
     element.setAttribute(key, value);
   });
 }
-function buildStructuredData(meta) {
+function buildStructuredData(meta, siteOrigin) {
   var _a;
-  const origin = window.location.origin;
+  const origin = siteOrigin || (typeof window !== "undefined" ? window.location.origin : "https://institutomontcare.com.br");
   const url = `${origin}${meta.path}`;
   const clinicId = `${origin}/#clinic`;
   const websiteId = `${origin}/#website`;
@@ -8383,7 +8383,7 @@ function Header({ isInnerPage = false }) {
         width: "205",
         height: "64",
         decoding: "async",
-        fetchPriority: "high"
+        fetchpriority: "high"
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -8637,7 +8637,7 @@ function HomePage() {
             alt: "",
             width: "1920",
             height: "1080",
-            fetchPriority: "high",
+            fetchpriority: "high",
             decoding: "async"
           }
         )
@@ -9102,10 +9102,11 @@ function MinimallyInvasivePage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, { isInnerPage: true })
   ] });
 }
-function App() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
-  const searchParams = new URLSearchParams(window.location.search);
-  const page = searchParams.get("page");
+function App({ initialPage } = {}) {
+  const hasWindow = typeof window !== "undefined";
+  const pathname = hasWindow ? window.location.pathname.replace(/\/+$/, "") || "/" : "/";
+  const searchParams = hasWindow ? new URLSearchParams(window.location.search) : new URLSearchParams();
+  const page = initialPage || searchParams.get("page");
   const isRehabPage = page === "reabilitacao-ortopedica" || pathname.endsWith("/reabilitacao-ortopedica");
   const isArthrodesisPage = page === "artrodeses" || pathname.endsWith("/artrodeses");
   const isInfiltrationPage = page === "infiltracoes" || pathname.endsWith("/infiltracoes");
