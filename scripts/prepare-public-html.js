@@ -217,18 +217,6 @@ Sitemap: ${absoluteUrl("/sitemap.xml")}
   );
 
   writeFileSync(
-    join(distDir, "robots.php"),
-    `<?php
-header('Content-Type: text/plain; charset=UTF-8');
-header('Content-Disposition: inline');
-header('Cache-Control: public, max-age=300');
-echo "User-agent: *\\n";
-echo "Allow: /\\n\\n";
-echo "Sitemap: ${absoluteUrl("/sitemap.xml")}\\n";
-`,
-  );
-
-  writeFileSync(
     join(distDir, "llms.txt"),
     `# Instituto Montcare
 
@@ -293,7 +281,7 @@ AddCharset UTF-8 .txt
   RewriteEngine On
   RewriteBase /
 
-  RewriteRule ^robots\.txt$ robots.php [L]
+  RewriteRule ^robots\.txt$ - [T=text/plain,L]
   RewriteRule ^llms\.txt$ - [T=text/plain,L]
   RewriteRule ^sitemap\.xml$ - [T=application/xml,L]
 
