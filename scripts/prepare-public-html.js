@@ -207,6 +207,30 @@ ${sitemapUrls}
 `,
   );
 
+  const robotsHtml = `<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <title>robots.txt | Instituto Montcare</title>
+    <style>
+      body { margin: 0; padding: 24px; background: #fff; color: #111; font: 16px/1.5 monospace; }
+      pre { margin: 0; white-space: pre-wrap; }
+    </style>
+  </head>
+  <body>
+    <pre>User-agent: *
+Allow: /
+
+Sitemap: ${absoluteUrl("/sitemap.xml")}</pre>
+  </body>
+</html>
+`;
+
+  mkdirSync(join(distDir, "robots.txt"), { recursive: true });
+  writeFileSync(join(distDir, "robots.txt", "index.html"), robotsHtml);
+
   writeFileSync(
     join(distDir, "llms.txt"),
     `# Instituto Montcare
