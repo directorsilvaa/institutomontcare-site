@@ -22,6 +22,58 @@ const legacyQueryPages = {
   "cirurgias-minimamente-invasivas": "/cirurgias-minimamente-invasivas/",
 };
 
+const crawlerResponses = {
+  "/robots.txt": {
+    contentType: "text/plain; charset=utf-8",
+    body: `User-agent: *
+Allow: /
+
+Sitemap: https://institutomontcare.com.br/sitemap.xml
+`,
+  },
+  "/sitemap.xml": {
+    contentType: "application/xml; charset=utf-8",
+    body: `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://institutomontcare.com.br/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://institutomontcare.com.br/reabilitacao-ortopedica/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://institutomontcare.com.br/artrodeses/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://institutomontcare.com.br/infiltracoes/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://institutomontcare.com.br/cirurgias-minimamente-invasivas/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+`,
+  },
+  "/llms.txt": {
+    contentType: "text/plain; charset=utf-8",
+    body: `# Instituto Montcare
+
+Site oficial: https://institutomontcare.com.br
+Idioma principal: pt-BR
+Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas e cirurgias minimamente invasivas.
+`,
+  },
+};
+
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -82,6 +134,19 @@ function resolveStaticPath(pathname) {
 
 createServer((request, response) => {
   const requestUrl = new URL(request.url || "/", getOrigin(request));
+  const crawlerResponse = crawlerResponses[requestUrl.pathname];
+
+  if (crawlerResponse) {
+    response.writeHead(200, {
+      "Content-Type": crawlerResponse.contentType,
+      "Content-Disposition": "inline",
+      "Cache-Control": "public, max-age=300",
+      "X-Content-Type-Options": "nosniff",
+    });
+    response.end(crawlerResponse.body);
+    return;
+  }
+
   const legacyPath = legacyQueryPages[requestUrl.searchParams.get("page")];
 
   if (legacyPath) {
