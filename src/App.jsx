@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Projeto institucional do Instituto Montcare.
 // Estrutura e documentação organizadas por Matheu Silva.

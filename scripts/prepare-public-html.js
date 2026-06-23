@@ -104,7 +104,37 @@ function writePage(routePath, html) {
 }
 
 function replaceRootHtml(html, bodyHtml) {
-  return html.replace(/<div id="root"[^>]*>[\s\S]*<\/div>\s*(?=<\/body>)/i, `<div id="root">${bodyHtml}</div>\n  `);
+  return html.replace(/<div id="root"[^>]*>[\s\S]*<\/div>\s*(?=<\/body>)/i, `<div id="root">\n${formatBodyHtml(bodyHtml)}\n    </div>\n  `);
+}
+
+function formatBodyHtml(html) {
+  const lines = html
+    .replace(/></g, ">\n<")
+    .replace(/(<\/(?:h1|h2|h3|p|span|strong|small|a|summary)>)([^\n<]+)/g, "$1\n$2")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+  let depth = 3;
+
+  return lines
+    .map((line) => {
+      if (/^<\/[^>]+>/.test(line)) {
+        depth = Math.max(3, depth - 1);
+      }
+
+      const formatted = `${"  ".repeat(depth)}${line}`;
+
+      if (
+        /^<[^!/][^>]*[^/]>\s*$/.test(line) &&
+        !/^<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)\b/i.test(line) &&
+        !/^<[^>]+>[^<]+<\/[^>]+>$/.test(line)
+      ) {
+        depth += 1;
+      }
+
+      return formatted;
+    })
+    .join("\n");
 }
 
 const vite = await createServer({
@@ -119,13 +149,14 @@ try {
 
   for (const route of staticRoutes) {
     const page = pageMeta[route.key] || pageMeta.home;
-    const bodyHtml = render(route.key);
-    const structuredData = buildStructuredData(page, siteUrl);
-    const html = renderHead(
-      replaceRootHtml(template, bodyHtml),
-      page,
-      structuredData,
-    );
+    const html =
+      route.key === "home"
+        ? template
+        : renderHead(
+            replaceRootHtml(template, render(route.key)),
+            page,
+            buildStructuredData(page, siteUrl),
+          );
 
     writePage(route.path, html);
   }
