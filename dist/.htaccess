@@ -31,7 +31,7 @@ AddCharset UTF-8 .txt
   RewriteEngine On
   RewriteBase /
 
-  RewriteRule ^robots.txt$ - [T=text/plain,L]
+  RewriteRule ^robots.txt$ robots.php [L]
   RewriteRule ^llms.txt$ - [T=text/plain,L]
   RewriteRule ^sitemap.xml$ - [T=application/xml,L]
 
