@@ -1,7 +1,10 @@
 DirectoryIndex index.html
 Options -MultiViews
 AddType text/plain .txt
+AddType text/plain .text
+AddType application/xml .xml
 AddCharset UTF-8 .txt
+AddCharset UTF-8 .xml
 
 <Files "robots.txt">
   ForceType text/plain

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createServer } from "vite";
 
@@ -207,29 +207,19 @@ ${sitemapUrls}
 `,
   );
 
-  const robotsHtml = `<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <title>robots.txt | Instituto Montcare</title>
-    <style>
-      body { margin: 0; padding: 24px; background: #fff; color: #111; font: 16px/1.5 monospace; }
-      pre { margin: 0; white-space: pre-wrap; }
-    </style>
-  </head>
-  <body>
-    <pre>User-agent: *
+  const robotsPath = join(distDir, "robots.txt");
+  if (existsSync(robotsPath)) {
+    rmSync(robotsPath, { recursive: true, force: true });
+  }
+
+  writeFileSync(
+    robotsPath,
+    `User-agent: *
 Allow: /
 
-Sitemap: ${absoluteUrl("/sitemap.xml")}</pre>
-  </body>
-</html>
-`;
-
-  mkdirSync(join(distDir, "robots.txt"), { recursive: true });
-  writeFileSync(join(distDir, "robots.txt", "index.html"), robotsHtml);
+Sitemap: ${absoluteUrl("/sitemap.xml")}
+`,
+  );
 
   writeFileSync(
     join(distDir, "llms.txt"),
@@ -266,7 +256,10 @@ ${staticRoutes
     `DirectoryIndex index.html
 Options -MultiViews
 AddType text/plain .txt
+AddType text/plain .text
+AddType application/xml .xml
 AddCharset UTF-8 .txt
+AddCharset UTF-8 .xml
 
 <Files "robots.txt">
   ForceType text/plain
