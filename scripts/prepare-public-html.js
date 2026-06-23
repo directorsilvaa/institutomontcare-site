@@ -44,6 +44,15 @@ function replaceMeta(html, selector, value) {
   return replaceOrInsert(html, pattern, replacement);
 }
 
+function removeMeta(html, selector) {
+  const pattern =
+    selector.type === "property"
+      ? new RegExp(`\\s*<meta\\s+[^>]*property="${selector.name}"[^>]*>`, "i")
+      : new RegExp(`\\s*<meta\\s+[^>]*name="${selector.name}"[^>]*>`, "i");
+
+  return html.replace(pattern, "");
+}
+
 function replaceLink(html, rel, href) {
   const pattern = new RegExp(`<link\\s+[^>]*rel="${rel}"[^>]*>`, "i");
   return replaceOrInsert(html, pattern, `<link rel="${rel}" href="${escapeHtml(href)}" />`);
@@ -56,7 +65,7 @@ function renderHead(html, page, structuredData) {
   next = replaceMeta(next, { type: "name", name: "description" }, page.description);
   next = replaceMeta(next, { type: "name", name: "robots" }, "index, follow, max-image-preview:large");
   next = replaceMeta(next, { type: "name", name: "googlebot" }, "index, follow, max-image-preview:large");
-  next = replaceMeta(next, { type: "name", name: "keywords" }, page.keywords);
+  next = removeMeta(next, { type: "name", name: "keywords" });
   next = replaceMeta(next, { type: "name", name: "geo.region" }, "BR-SP");
   next = replaceMeta(next, { type: "name", name: "geo.placename" }, "São Paulo, SP");
   next = replaceMeta(next, { type: "name", name: "author" }, "Instituto Montcare");
@@ -154,10 +163,10 @@ Sitemap: ${absoluteUrl("/sitemap.xml")}
 
 Site oficial: ${siteUrl}
 Idioma principal: pt-BR
-Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas e cirurgias minimamente invasivas.
+Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas, cirurgias minimamente invasivas, mastologia, reconstrução mamária, nutrição esportiva e cuidado infectológico.
 Localização: Av Moaci, 395, 14 andar - Sala 146, São Paulo - SP, Brasil.
 Telefone/WhatsApp: +55 11 94593-0212
-E-mail: institutomontcare@gmail.com
+E-mail: contato@institutomontcare.com.br
 
 ## Páginas principais
 ${staticRoutes

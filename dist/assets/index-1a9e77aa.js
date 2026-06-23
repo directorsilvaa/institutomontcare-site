@@ -8130,8 +8130,7 @@ const minimallyInvasiveFaqItems = [
 const PHONE_HREF = "tel:+5511945930212";
 const WHATSAPP_HREF = "https://wa.me/5511945930212";
 const CLINIC_NAME = "Instituto Montcare";
-const CLINIC_PHONE = "+55 11 94593-0212";
-const CLINIC_EMAIL = "institutomontcare@gmail.com";
+const CLINIC_EMAIL = "contato@institutomontcare.com.br";
 const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 146";
 const CLINIC_LOCALITY = "São Paulo";
 const CLINIC_REGION = "SP";
@@ -8162,7 +8161,6 @@ const pageMeta = {
     title: "Instituto Montcare | Ortopedia Resolutiva em São Paulo",
     description: "Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional.",
     path: getHomeHref(),
-    keywords: "Instituto Montcare, ortopedia em São Paulo, clínica ortopédica em Moema, ortopedia resolutiva, cirurgia de coluna, reabilitação ortopédica",
     serviceName: "Ortopedia resolutiva em São Paulo",
     seoContent: {
       eyebrow: "Resumo para pacientes",
@@ -8192,7 +8190,6 @@ const pageMeta = {
     title: "Reabilitação Ortopédica | Instituto Montcare",
     description: "Avaliação e reabilitação ortopédica com foco em recuperação de movimento, autonomia, controle da dor e retorno seguro às atividades.",
     path: getPageHref("reabilitacao-ortopedica"),
-    keywords: "reabilitação ortopédica em São Paulo, fisioterapia ortopédica, recuperação de movimento, clínica ortopédica em Moema",
     serviceName: "Reabilitação ortopédica",
     seoContent: {
       eyebrow: "Resumo do tratamento",
@@ -8218,7 +8215,6 @@ const pageMeta = {
     title: "Artrodese da Coluna | Instituto Montcare",
     description: "Artrodese da coluna com avaliação especializada, planejamento cirúrgico preciso e foco em estabilidade, alinhamento e recuperação funcional.",
     path: getPageHref("artrodeses"),
-    keywords: "artrodese da coluna em São Paulo, cirurgia de coluna, estabilidade da coluna, ortopedista de coluna em Moema",
     serviceName: "Artrodese da coluna",
     seoContent: {
       eyebrow: "Resumo do procedimento",
@@ -8244,7 +8240,6 @@ const pageMeta = {
     title: "Infiltrações Ortopédicas | Instituto Montcare",
     description: "Infiltrações ortopédicas para controle da dor e da inflamação, com indicação individualizada e acompanhamento especializado.",
     path: getPageHref("infiltracoes"),
-    keywords: "infiltrações ortopédicas em São Paulo, infiltração na coluna, controle da dor ortopédica, ortopedia em Moema",
     serviceName: "Infiltrações ortopédicas",
     seoContent: {
       eyebrow: "Resumo do procedimento",
@@ -8270,7 +8265,6 @@ const pageMeta = {
     title: "Cirurgias Minimamente Invasivas | Instituto Montcare",
     description: "Cirurgias minimamente invasivas com foco em precisão, menor agressão tecidual e recuperação funcional orientada por avaliação especializada.",
     path: getPageHref("cirurgias-minimamente-invasivas"),
-    keywords: "cirurgias minimamente invasivas em São Paulo, cirurgia ortopédica, cirurgia de coluna minimamente invasiva, Instituto Montcare",
     serviceName: "Cirurgias minimamente invasivas",
     seoContent: {
       eyebrow: "Resumo do procedimento",
@@ -8314,12 +8308,12 @@ function ensureLink(selector, attributes) {
   });
 }
 function buildStructuredData(meta, siteOrigin) {
-  var _a;
   const origin = siteOrigin || (typeof window !== "undefined" ? window.location.origin : "https://institutomontcare.com.br");
-  const url = `${origin}${meta.path}`;
   const clinicId = `${origin}/#clinic`;
   const websiteId = `${origin}/#website`;
-  const pageId = `${url}#webpage`;
+  const webpageId = `${origin}/#webpage`;
+  const pagePath = (meta == null ? void 0 : meta.path) || getHomeHref();
+  const pageUrl = `${origin}${pagePath}`;
   const areaServed = ["São Paulo", "Moema", "Indianópolis", "Zona Sul de São Paulo"].map((name) => ({
     "@type": "Place",
     name
@@ -8330,8 +8324,15 @@ function buildStructuredData(meta, siteOrigin) {
     "Reabilitação ortopédica",
     "Artrodese da coluna",
     "Infiltrações ortopédicas",
-    "Cirurgias minimamente invasivas"
+    "Cirurgias minimamente invasivas",
+    "Mastologia",
+    "Reconstrução mamária",
+    "Nutrição esportiva",
+    "Cuidado infectológico",
+    "Osteopatia",
+    "Cirurgia de Quadril"
   ];
+  const medicalSpecialties = ["Orthopedic", "Physiotherapy", "PlasticSurgery", "InfectiousDisease"];
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -8341,7 +8342,7 @@ function buildStructuredData(meta, siteOrigin) {
     logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: CLINIC_PHONE,
+      telephone: "+55-11-94593-0212",
       contactType: "customer service",
       availableLanguage: "Portuguese"
     }
@@ -8354,10 +8355,10 @@ function buildStructuredData(meta, siteOrigin) {
     url: origin,
     image: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
     logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
-    telephone: CLINIC_PHONE,
+    telephone: "+55-11-94593-0212",
     email: CLINIC_EMAIL,
     priceRange: "$$",
-    medicalSpecialty: ["Orthopedic", "Physiotherapy"],
+    medicalSpecialty: medicalSpecialties,
     areaServed,
     knowsAbout,
     address: {
@@ -8367,17 +8368,50 @@ function buildStructuredData(meta, siteOrigin) {
       addressRegion: CLINIC_REGION,
       addressCountry: CLINIC_COUNTRY
     },
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: CLINIC_PHONE,
-      contactType: "customer service",
-      availableLanguage: "Portuguese"
-    },
-    availableService: Object.values(pageMeta).map((item) => ({
-      "@type": "MedicalProcedure",
-      name: item.serviceName,
-      url: `${origin}${item.path}`
-    }))
+    employee: [
+      {
+        "@type": "Person",
+        name: "Danilo Lira Gianuzzi",
+        jobTitle: "Ortopedista e Cirurgião de Coluna",
+        identifier: "CRM 161.906/SP"
+      },
+      {
+        "@type": "Person",
+        name: "Gustavo Bisson",
+        jobTitle: "Ortopedista e Cirurgião de Coluna",
+        identifier: "CRM 151542SP"
+      },
+      {
+        "@type": "Person",
+        name: "Greice Cristina Tarabay Bisson",
+        jobTitle: "Mastologista",
+        identifier: "CRM 157503SP"
+      },
+      {
+        "@type": "Person",
+        name: "Yoanna Evangelos Abbas",
+        jobTitle: "Especialista em Nutrição Esportiva e Obesidade",
+        identifier: "CRM 392744"
+      },
+      {
+        "@type": "Person",
+        name: "Guilherme Spaziani",
+        jobTitle: "Infectologista",
+        identifier: "CRM 141775"
+      },
+      {
+        "@type": "Person",
+        name: "Ocilmar Junior",
+        jobTitle: "Ortopedista e Traumatologista",
+        identifier: "CRM 121989"
+      },
+      {
+        "@type": "Person",
+        name: "Bruno Tadeu de Oliveira",
+        jobTitle: "Fisioterapeuta e Osteopata",
+        identifier: "CREFITO 200467"
+      }
+    ]
   };
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -8386,77 +8420,82 @@ function buildStructuredData(meta, siteOrigin) {
     name: CLINIC_NAME,
     url: origin,
     inLanguage: "pt-BR",
-    publisher: {
-      "@id": clinicId
-    }
+    publisher: { "@id": clinicId }
   };
-  const webPageSchema = {
+  const webpageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": pageId,
-    name: meta.title,
-    description: meta.description,
-    url,
+    "@id": webpageId,
+    name: (meta == null ? void 0 : meta.title) || pageMeta.home.title,
+    description: (meta == null ? void 0 : meta.description) || pageMeta.home.description,
+    url: pageUrl,
     inLanguage: "pt-BR",
-    isPartOf: {
-      "@id": websiteId
-    },
-    about: {
-      "@id": clinicId
-    },
+    isPartOf: { "@id": websiteId },
+    about: { "@id": clinicId },
     primaryImageOfPage: {
       "@type": "ImageObject",
       url: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`
     },
     speakable: {
       "@type": "SpeakableSpecification",
-      cssSelector: ["h1", ".rehab-hero-content p", ".faq-item", ".rehab-faq-item"]
+      cssSelector: ["h1", ".about-text-block p", ".faq-item", ".doctor-card"]
     }
   };
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": meta.path === getHomeHref() ? "MedicalBusiness" : "MedicalProcedure",
-    name: meta.serviceName,
-    description: meta.description,
-    url,
-    provider: {
-      "@id": clinicId
-    },
-    areaServed
-  };
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: CLINIC_NAME,
-        item: `${origin}${getHomeHref()}`
-      },
-      ...meta.path === getHomeHref() ? [] : [
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: meta.serviceName,
-          item: url
-        }
-      ]
-    ]
-  };
-  const faqSchema = ((_a = meta.faq) == null ? void 0 : _a.length) ? {
+  const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: meta.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "O que é a medicina resolutiva oferecida pela Montcare?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "É um atendimento focado na rápida resolução dos problemas ortopédicos, com ênfase em tratamentos conservadores e cirúrgicos minimamente invasivos."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Preciso de plano de saúde para ser atendido?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Não necessariamente. A equipe orienta cada caso individualmente e informa as possibilidades de atendimento disponíveis para a consulta."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "A clínica só realiza cirurgias?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Não. O instituto atua tanto com tratamentos clínicos quanto cirúrgicos, sempre priorizando a conduta mais indicada para cada paciente."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Como é feita a infiltração ortopédica?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A infiltração é indicada conforme avaliação médica e pode ser utilizada para controle da dor e inflamação com mais precisão terapêutica."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Posso fazer fisioterapia mesmo sem cirurgia?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Sim. Muitos quadros ortopédicos são tratados com reabilitação e acompanhamento multidisciplinar, sem necessidade de procedimento cirúrgico."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Como agendar minha consulta?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Você pode iniciar seu agendamento diretamente pelos botões da página e falar com a equipe para escolher o melhor horário disponível."
+        }
       }
-    }))
-  } : null;
-  return [organizationSchema, clinicSchema, websiteSchema, webPageSchema, serviceSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+    ]
+  };
+  return [organizationSchema, clinicSchema, websiteSchema, webpageSchema, faqSchema];
 }
 function SeoContentBlock({ meta }) {
   if (!(meta == null ? void 0 : meta.seoContent)) {
@@ -8681,10 +8720,10 @@ function Footer({ isInnerPage = false }) {
             /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: "Atendimento por telefone" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:institutomontcare@gmail.com", className: "footer-contact-item", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `mailto:${CLINIC_EMAIL}`, className: "footer-contact-item", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(FooterIcon, { type: "mail" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "institutomontcare@gmail.com" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: CLINIC_EMAIL }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("small", { children: "Contato por e-mail" })
           ] })
         ] }),
@@ -8752,7 +8791,7 @@ function HomePage() {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hero-overlay", children: /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "hero-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "hero-title", children: "Ortopedia resolutiva para mais mobilidade e qualidade de vida." }) }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hero-overlay", children: /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "hero-content", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "hero-title", children: "Ortopedia resolutiva em São Paulo para mais mobilidade e qualidade de vida." }) }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "about-section", id: "quem-somos", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "about-shell", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "about-copy", "data-reveal": true, children: [
@@ -8761,9 +8800,11 @@ function HomePage() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "about-text-block", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Diretores com autoridade em ortopedia e coluna" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-            "À frente do Instituto Montcare estão diretores com",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: " autoridade técnica em ortopedia e cirurgia da coluna" }),
-            ", trajetória consolidada e visão clínica voltada à solução real de cada caso."
+            "À frente do Instituto Montcare estão o ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Dr. Gustavo Bisson, CRM 151542SP" }),
+            ", responsável técnico, e o ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Dr. Danilo Lira Gianuzzi, CRM 161.906/SP" }),
+            ", médico sócio, diretores com autoridade técnica em ortopedia e cirurgia da coluna, trajetória consolidada e visão clínica voltada à solução real de cada caso."
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "A condução médica parte de diagnóstico preciso, indicação responsável e domínio de tratamentos que vão do cuidado conservador aos procedimentos cirúrgicos de maior complexidade." })
         ] }),
@@ -9228,6 +9269,7 @@ function App({ initialPage } = {}) {
   const isMinimallyInvasivePage = page === "cirurgias-minimamente-invasivas" || pathname.endsWith("/cirurgias-minimamente-invasivas");
   const currentMetaKey = page || (isRehabPage ? "reabilitacao-ortopedica" : isArthrodesisPage ? "artrodeses" : isInfiltrationPage ? "infiltracoes" : isMinimallyInvasivePage ? "cirurgias-minimamente-invasivas" : "home");
   reactExports.useEffect(() => {
+    var _a;
     const meta = pageMeta[currentMetaKey] || pageMeta.home;
     const canonicalUrl = `${window.location.origin}${meta.path}`;
     const shareImageUrl = `${window.location.origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`;
@@ -9238,7 +9280,7 @@ function App({ initialPage } = {}) {
       name: "googlebot",
       content: "index, follow, max-image-preview:large"
     });
-    ensureMeta('meta[name="keywords"]', { name: "keywords", content: meta.keywords });
+    (_a = document.head.querySelector('meta[name="keywords"]')) == null ? void 0 : _a.remove();
     ensureMeta('meta[name="geo.region"]', { name: "geo.region", content: "BR-SP" });
     ensureMeta('meta[name="geo.placename"]', {
       name: "geo.placename",
