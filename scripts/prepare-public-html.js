@@ -103,6 +103,10 @@ function writePage(routePath, html) {
   }
 }
 
+function replaceRootHtml(html, bodyHtml) {
+  return html.replace(/<div id="root"[^>]*>[\s\S]*<\/div>\s*(?=<\/body>)/i, `<div id="root">${bodyHtml}</div>\n  `);
+}
+
 const vite = await createServer({
   logLevel: "error",
   server: { middlewareMode: true },
@@ -118,7 +122,7 @@ try {
     const bodyHtml = render(route.key);
     const structuredData = buildStructuredData(page, siteUrl);
     const html = renderHead(
-      template.replace(/<div id="root"><\/div>/i, `<div id="root">${bodyHtml}</div>`),
+      replaceRootHtml(template, bodyHtml),
       page,
       structuredData,
     );

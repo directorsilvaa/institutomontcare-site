@@ -7579,10 +7579,11 @@ function checkDCE() {
   reactDom.exports = reactDom_production_min;
 }
 var reactDomExports = reactDom.exports;
+var hydrateRoot;
 var m = reactDomExports;
 {
   client.createRoot = m.createRoot;
-  client.hydrateRoot = m.hydrateRoot;
+  hydrateRoot = client.hydrateRoot = m.hydrateRoot;
 }
 const navItems = [
   { label: "Home", href: "#home" },
@@ -9404,6 +9405,10 @@ function App({ initialPage } = {}) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(HomePage, {});
 }
 const styles = "";
-client.createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
-);
+const rootElement = document.getElementById("root");
+const app = /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) });
+if (rootElement.hasChildNodes()) {
+  hydrateRoot(rootElement, app);
+} else {
+  client.createRoot(rootElement).render(app);
+}
