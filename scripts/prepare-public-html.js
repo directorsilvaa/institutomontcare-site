@@ -168,9 +168,9 @@ Sitemap: ${absoluteUrl("/sitemap.xml")}
 Site oficial: ${siteUrl}
 Idioma principal: pt-BR
 Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas, cirurgias minimamente invasivas, mastologia, reconstrução mamária, nutrição esportiva e cuidado infectológico.
-Localização: Av Moaci, 395, 14 andar - Sala 146, São Paulo - SP, Brasil.
-Telefone/WhatsApp: +55 11 94593-0212
-E-mail: contato@institutomontcare.com.br
+Localização: Av Moaci, 395, 14 andar - Sala 145, São Paulo - SP, Brasil.
+Telefone/WhatsApp: +55 11 3384-2525
+E-mail: institutomontcare@gmail.com
 
 ## Páginas principais
 ${staticRoutes

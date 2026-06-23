@@ -205,32 +205,47 @@ const specialties = [
   {
     title: "Ortopedia Cirúrgica",
     icon: "/icones/01_ortopedia-cirurgica.webp",
-    description: "Abordagens cirúrgicas modernas com foco em segurança e recuperação funcional.",
+    description: "Procedimentos ortopédicos com estrutura moderna e foco em recuperação segura.",
   },
   {
     title: "Coluna",
     icon: "/icones/02_coluna.webp",
-    description: "Avaliação precisa para dores, desalinhamentos e limitações da coluna vertebral.",
+    description: "Tratamento especializado para dores, limitações e alterações da coluna vertebral.",
   },
   {
     title: "Ombro",
     icon: "/icones/03_ombro.webp",
-    description: "Tratamento especializado para lesões, instabilidades e dores articulares.",
+    description: "Cuidado para lesões, dores e instabilidades que afetam a mobilidade.",
   },
   {
     title: "Joelho",
     icon: "/icones/04_joelho.webp",
-    description: "Cuidado completo para desgaste, traumas esportivos e reabilitação articular.",
+    description: "Avaliação e tratamento para dores, desgastes e traumas esportivos.",
   },
   {
     title: "Quadril",
     icon: "/icones/05_quadril.webp",
-    description: "Condutas clínicas e cirúrgicas voltadas à mobilidade e alívio da dor.",
+    description: "Condutas clínicas e cirúrgicas voltadas ao movimento e alívio da dor.",
   },
   {
     title: "Mão",
     icon: "/icones/06_mao.webp",
-    description: "Soluções para alterações funcionais, compressões nervosas e lesões finas.",
+    description: "Soluções para alterações funcionais, compressões nervosas e lesões.",
+  },
+  {
+    title: "Pé e Tornozelo",
+    icon: "/icones/07_pe-e-tornozelo.webp",
+    description: "Cuidado para dores, lesões e limitações funcionais nos pés e tornozelos.",
+  },
+  {
+    title: "Reabilitação funcional",
+    icon: "/icones/08_reabilitacao-funcional.webp",
+    description: "Recuperação de mobilidade, força e autonomia no retorno às atividades.",
+  },
+  {
+    title: "Intervenção da dor",
+    icon: "/icones/09_intervencao-da-dor.webp",
+    description: "Tratamentos direcionados para controle da dor e melhora da qualidade de vida.",
   },
 ];
 
@@ -243,28 +258,24 @@ const faqItems = [
   },
   {
     question: "Preciso de plano de saúde para ser atendido?",
-    answer:
-      "Não necessariamente. A equipe orienta cada caso individualmente e informa as possibilidades de atendimento disponíveis para a consulta.",
+    answer: "Não. A Montcare atende pacientes particulares, oferecendo agilidade e menos burocracia.",
   },
   {
     question: "A clínica só realiza cirurgias?",
     answer:
-      "Não. O instituto atua tanto com tratamentos clínicos quanto cirúrgicos, sempre priorizando a conduta mais indicada para cada paciente.",
+      "Não. Embora tenha estrutura cirúrgica moderna, 80% dos tratamentos são conservadores, priorizando sempre a menor intervenção.",
   },
   {
     question: "Como é feita a infiltração ortopédica?",
-    answer:
-      "A infiltração é indicada conforme avaliação médica e pode ser utilizada para controle da dor e inflamação com mais precisão terapêutica.",
+    answer: "A infiltração é feita com auxílio de ultrassom para maior precisão e sem dor para o paciente.",
   },
   {
     question: "Posso fazer fisioterapia mesmo sem cirurgia?",
-    answer:
-      "Sim. Muitos quadros ortopédicos são tratados com reabilitação e acompanhamento multidisciplinar, sem necessidade de procedimento cirúrgico.",
+    answer: "Sim! A fisioterapia é parte fundamental dos tratamentos conservadores e preventivos da Montcare.",
   },
   {
     question: "Como agendar minha consulta?",
-    answer:
-      "Você pode iniciar seu agendamento diretamente pelos botões da página e falar com a equipe para escolher o melhor horário disponível.",
+    answer: "Você pode agendar via WhatsApp ou telefone direto com a nossa equipe.",
   },
 ];
 
@@ -617,12 +628,12 @@ const minimallyInvasiveFaqItems = [
   },
 ];
 
-const PHONE_HREF = "tel:+5511945930212";
-const WHATSAPP_HREF = "https://wa.me/5511945930212";
+const PHONE_HREF = "tel:+551133842525";
+const WHATSAPP_HREF = "https://api.whatsapp.com/send?phone=551133842525";
 const CLINIC_NAME = "Instituto Montcare";
-const CLINIC_PHONE = "+55 11 94593-0212";
-const CLINIC_EMAIL = "contato@institutomontcare.com.br";
-const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 146";
+const CLINIC_PHONE = "+55 11 3384-2525";
+const CLINIC_EMAIL = "institutomontcare@gmail.com";
+const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 145";
 const CLINIC_LOCALITY = "São Paulo";
 const CLINIC_REGION = "SP";
 const CLINIC_COUNTRY = "BR";
@@ -668,33 +679,33 @@ const getProcedureHref = (title) => {
 // Metadados dinâmicos usados por SEO, compartilhamento e schema.org.
 export const pageMeta = {
   home: {
-    title: "Instituto Montcare | Ortopedia Resolutiva em São Paulo",
+    title: "Instituto Montcare | Excelência em Ortopedia",
     description:
-      "Instituto Montcare oferece ortopedia resolutiva com atendimento humanizado, procedimentos especializados e foco em mobilidade, qualidade de vida e recuperação funcional.",
+      "Instituto Montcare é um centro de excelência em ortopedia com medicina resolutiva, estrutura moderna e cuidado multidisciplinar.",
     path: getHomeHref(),
-    serviceName: "Ortopedia resolutiva em São Paulo",
+    serviceName: "Excelência em ortopedia",
     seoContent: {
       eyebrow: "Resumo para pacientes",
       title: "O que é o Instituto Montcare?",
       paragraphs: [
-        "O Instituto Montcare é uma clínica ortopédica em São Paulo focada em medicina resolutiva, atendimento humanizado e cuidado integrado para dor, mobilidade e recuperação funcional.",
-        "A equipe atua com tratamentos conservadores, reabilitação funcional, infiltrações ortopédicas, cirurgias minimamente invasivas, cirurgia da coluna e especialidades complementares.",
+        "O Instituto Montcare é um centro de excelência em ortopedia, especializado em oferecer soluções para os problemas ortopédicos de seus pacientes.",
+        "A atuação integra reabilitação funcional, cuidado multidisciplinar, procedimentos menos invasivos e suporte contínuo desde o diagnóstico até o pós-tratamento.",
       ],
       answers: [
         {
           question: "Onde o Instituto Montcare atende?",
           answer:
-            "O atendimento acontece em São Paulo, na região de Moema e Indianópolis, com foco em pacientes que buscam avaliação ortopédica e acompanhamento especializado.",
+            "O atendimento acontece em São Paulo, na Av Moaci, 395, 14 andar - Sala 145.",
         },
         {
           question: "Quando procurar atendimento ortopédico?",
           answer:
-            "Procure avaliação quando houver dor persistente na coluna, articulações, joelho, ombro, quadril, mão, pé ou tornozelo, perda de mobilidade ou limitação nas atividades diárias.",
+            "Procure avaliação quando houver dor, limitação física, perda de mobilidade ou necessidade de orientação sobre tratamentos conservadores e cirúrgicos.",
         },
         {
           question: "Quais são os diferenciais da clínica?",
           answer:
-            "O cuidado combina diagnóstico preciso, indicação terapêutica responsável, acompanhamento multidisciplinar e procedimentos modernos quando bem indicados.",
+            "A Montcare oferece tratamento resolutivo e humanizado, atendimento rápido fora dos planos de saúde e apoio psicológico no processo de recuperação.",
         },
       ],
     },
@@ -877,7 +888,7 @@ export function buildStructuredData(meta, siteOrigin) {
     logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+55-11-94593-0212",
+      telephone: CLINIC_PHONE,
       contactType: "customer service",
       availableLanguage: "Portuguese",
     },
@@ -891,7 +902,7 @@ export function buildStructuredData(meta, siteOrigin) {
     url: origin,
     image: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
     logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
-    telephone: "+55-11-94593-0212",
+    telephone: CLINIC_PHONE,
     email: CLINIC_EMAIL,
     priceRange: "$$",
     medicalSpecialty: medicalSpecialties,
@@ -983,56 +994,14 @@ export function buildStructuredData(meta, siteOrigin) {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "O que é a medicina resolutiva oferecida pela Montcare?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "É um atendimento focado na rápida resolução dos problemas ortopédicos, com ênfase em tratamentos conservadores e cirúrgicos minimamente invasivos.",
-        },
+    mainEntity: (meta.faq || faqItems).map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
       },
-      {
-        "@type": "Question",
-        name: "Preciso de plano de saúde para ser atendido?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Não necessariamente. A equipe orienta cada caso individualmente e informa as possibilidades de atendimento disponíveis para a consulta.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "A clínica só realiza cirurgias?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Não. O instituto atua tanto com tratamentos clínicos quanto cirúrgicos, sempre priorizando a conduta mais indicada para cada paciente.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Como é feita a infiltração ortopédica?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "A infiltração é indicada conforme avaliação médica e pode ser utilizada para controle da dor e inflamação com mais precisão terapêutica.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Posso fazer fisioterapia mesmo sem cirurgia?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sim. Muitos quadros ortopédicos são tratados com reabilitação e acompanhamento multidisciplinar, sem necessidade de procedimento cirúrgico.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Como agendar minha consulta?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Você pode iniciar seu agendamento diretamente pelos botões da página e falar com a equipe para escolher o melhor horário disponível.",
-        },
-      },
-    ],
+    })),
   };
 
   return [organizationSchema, clinicSchema, websiteSchema, webpageSchema, faqSchema];
@@ -1292,7 +1261,7 @@ function Footer({ isInnerPage = false }) {
           <a href={PHONE_HREF} className="footer-contact-item">
             <FooterIcon type="phone" />
             <span>
-              <strong>(11) 94593-0212</strong>
+              <strong>(11) 3384-2525</strong>
               <small>Atendimento por telefone</small>
             </span>
           </a>
@@ -1308,7 +1277,7 @@ function Footer({ isInnerPage = false }) {
           <div className="footer-contact-item">
             <FooterIcon type="location" />
             <span>
-              <strong>Av Moaci, 395, 14 andar - Sala 146</strong>
+              <strong>{CLINIC_ADDRESS}</strong>
               <small>Endereço de atendimento</small>
             </span>
           </div>
@@ -1371,8 +1340,9 @@ function HomePage() {
         <div className="hero-overlay">
           <section className="hero-content">
             <h1 className="hero-title">
-              Ortopedia resolutiva em São Paulo para mais mobilidade e qualidade de vida.
+              Cuidado ortopédico de excelência para te dar mais qualidade de vida.
             </h1>
+            <p className="hero-subtitle">Medicina resolutiva: foco em resultados.</p>
           </section>
         </div>
       </main>
@@ -1384,38 +1354,43 @@ function HomePage() {
             <h2 className="section-title">QUEM SOMOS</h2>
 
             <div className="about-text-block">
-              <h3>Diretores com autoridade em ortopedia e coluna</h3>
               <p>
-                À frente do Instituto Montcare estão o <strong>Dr. Gustavo Bisson, CRM 151542SP</strong>,
-                responsável técnico, e o <strong>Dr. Danilo Lira Gianuzzi, CRM 161.906/SP</strong>,
-                médico sócio, diretores com autoridade técnica em ortopedia e cirurgia da coluna,
-                trajetória consolidada e visão clínica voltada à solução real de cada caso.
+                O Instituto Montcare é um centro de excelência em ortopedia, especializado em oferecer
+                soluções para os problemas ortopédicos de seus pacientes. O local conta com uma
+                estrutura moderna voltada para procedimentos cirúrgicos e tratamentos menos invasivos.
               </p>
 
               <p>
-                A condução médica parte de diagnóstico preciso, indicação responsável e domínio de
-                tratamentos que vão do cuidado conservador aos procedimentos cirúrgicos de maior
-                complexidade.
+                A missão do Instituto é atuar como uma retaguarda para o paciente ortopédico,
+                oferecendo suporte integral desde o diagnóstico até o pós-tratamento. Acreditamos que
+                cada paciente merece não apenas um tratamento técnico, mas também acolhimento emocional
+                e acompanhamento psicológico, fundamentais no enfrentamento de dores e limitações
+                físicas.
               </p>
             </div>
 
             <div className="about-text-block about-text-block-secondary">
-              <h3>Corpo clínico diversificado para cuidar do paciente como um todo</h3>
               <p>
-                Mais adiante no cuidado, o instituto reúne diferentes especialidades para acompanhar
-                o paciente de forma integrada, considerando dor, movimento, recuperação funcional e
-                qualidade de vida.
+                O Instituto Montcare integra especialidades que vão desde a reabilitação funcional até
+                o atendimento psico-nutricional, criando um cuidado multidisciplinar alinhado ao
+                tratamento ortopédico. Nosso compromisso é proporcionar um atendimento ágil, para acesso
+                rápido e direto às melhores opções de tratamento, sem burocracia.
               </p>
 
               <p>
-                Esse cuidado pode começar no básico, com uma fisioterapia simples e bem conduzida, e
-                evoluir, quando necessário, para procedimentos complexos como artrodeses,
-                discectomias e outras cirurgias ortopédicas especializadas.
+                O Montcare trabalha sob o conceito de “medicina resolutiva”, onde o paciente é o centro
+                de toda atenção. O objetivo é claro: o paciente entra com dor e sai com opções de
+                tratamento, acolhimento, respeito e suporte contínuo para o bem-estar físico e emocional.
               </p>
 
               <p className="about-highlight">
-                Da reabilitação ao tratamento cirúrgico de alta complexidade, o foco é oferecer
-                clareza, segurança e continuidade em cada etapa.
+                Aqui, você encontra uma equipe altamente qualificada, ambiente acolhedor e atendimento
+                dedicado a cuidar do seu corpo e da sua mente.
+              </p>
+              <p className="about-highlight">
+                Diretor Técnico<br />
+                Gustavo Bisson | CRM 151542SP<br />
+                Ortopedia e Traumatologia | RQE 69072
               </p>
             </div>
 
@@ -1442,45 +1417,45 @@ function HomePage() {
 
       <section className="procedures-section" id="procedimentos">
         <div className="procedures-shell">
-          <h2 className="procedures-title" data-reveal>SOLUÇÕES NA SAÚDE</h2>
+          <h2 className="procedures-title" data-reveal>PROCEDIMENTOS</h2>
 
-          <div className="solutions-grid" aria-label="Soluções na saúde do Instituto Montcare">
-            {healthcareSolutionGroups.map((solutionGroup) => (
-              <section key={solutionGroup.category} className="solution-group" data-reveal>
-                <h3 className="solution-group-title">{solutionGroup.category}</h3>
-
-                <div className="solution-items" aria-label={`Soluções de ${solutionGroup.category}`}>
-                  {solutionGroup.items.map((solution) => (
-                    <article key={solution.title} className="solution-card">
-                      <div className="solution-art" aria-hidden="true">
-                        <span className="solution-art-ray solution-art-ray-one" />
-                        <span className="solution-art-ray solution-art-ray-two" />
-                        <img
-                          src={withBase(solution.icon)}
-                          alt=""
-                          width="72"
-                          height="72"
-                          loading="lazy"
-                          decoding="async"
-                        />
-                      </div>
-
-                      <div className="solution-card-body">
-                        <h3>
-                          {solution.title}
-                          {solution.subtitle && <span>{solution.subtitle}</span>}
-                        </h3>
-                      </div>
-
-                    </article>
-                  ))}
+          <div className="procedure-grid">
+            {procedures.map((item) => (
+              <article key={item.title} className="procedure-item" data-reveal>
+                <div className="procedure-copy">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <a href={getProcedureHref(item.title)}>VER MAIS →</a>
                 </div>
-              </section>
+              </article>
             ))}
           </div>
 
           <a className="procedures-button" href={WHATSAPP_HREF} target="_blank" rel="noreferrer" data-reveal>
-            Explorar Todas as Soluções
+            Agende sua consulta
+          </a>
+        </div>
+      </section>
+
+      <section className="specialties-section">
+        <div className="specialties-shell">
+          <span className="specialties-eyebrow" data-reveal>DIFERENCIAIS</span>
+          <h2 className="specialties-title" data-reveal>Conheça alguns dos diferenciais Montcare:</h2>
+          <div className="specialties-grid">
+            {[
+              "Tratamento resolutivo e humanizado.",
+              "Atendimento rápido, fora dos planos de saúde.",
+              "Apoio psicológico no processo de recuperação.",
+            ].map((item, index) => (
+              <article key={item} className="specialty-card" data-reveal>
+                <span className="specialty-index" aria-hidden="true">{index + 1}</span>
+                <div className="specialty-card-line" aria-hidden="true" />
+                <h3>{item}</h3>
+              </article>
+            ))}
+          </div>
+          <a className="specialties-button" href={WHATSAPP_HREF} target="_blank" rel="noreferrer" data-reveal>
+            Agende sua consulta
           </a>
         </div>
       </section>
