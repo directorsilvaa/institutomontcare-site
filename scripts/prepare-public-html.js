@@ -208,15 +208,6 @@ ${sitemapUrls}
   );
 
   writeFileSync(
-    join(distDir, "robots.txt"),
-    `User-agent: *
-Allow: /
-
-Sitemap: ${absoluteUrl("/sitemap.xml")}
-`,
-  );
-
-  writeFileSync(
     join(distDir, "llms.txt"),
     `# Instituto Montcare
 
