@@ -632,8 +632,8 @@ const PHONE_HREF = "tel:+551133842525";
 const WHATSAPP_HREF = "https://api.whatsapp.com/send?phone=551133842525";
 const CLINIC_NAME = "Instituto Montcare";
 const CLINIC_PHONE = "+55 11 3384-2525";
-const CLINIC_EMAIL = "institutomontcare@gmail.com";
-const CLINIC_ADDRESS = "Av Moaci, 395, 14 andar - Sala 145";
+const CLINIC_EMAIL = "contato@institutomontcare.com.br";
+const CLINIC_ADDRESS = "Av. Moaci, 395, 14º andar, Sala 145 — Moema, São Paulo/SP";
 const CLINIC_LOCALITY = "São Paulo";
 const CLINIC_REGION = "SP";
 const CLINIC_COUNTRY = "BR";
@@ -695,7 +695,7 @@ export const pageMeta = {
         {
           question: "Onde o Instituto Montcare atende?",
           answer:
-            "O atendimento acontece em São Paulo, na Av Moaci, 395, 14 andar - Sala 145.",
+            "O atendimento acontece na Av. Moaci, 395, 14º andar, Sala 145 — Moema, São Paulo/SP.",
         },
         {
           question: "Quando procurar atendimento ortopédico?",

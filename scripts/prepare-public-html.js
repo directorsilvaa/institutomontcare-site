@@ -223,9 +223,9 @@ Sitemap: ${absoluteUrl("/sitemap.xml")}
 Site oficial: ${siteUrl}
 Idioma principal: pt-BR
 Tipo de negócio: clínica médica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitação ortopédica, infiltrações ortopédicas, cirurgias minimamente invasivas, mastologia, reconstrução mamária, nutrição esportiva e cuidado infectológico.
-Localização: Av Moaci, 395, 14 andar - Sala 145, São Paulo - SP, Brasil.
+Localização: Av. Moaci, 395, 14º andar, Sala 145 — Moema, São Paulo/SP, Brasil.
 Telefone/WhatsApp: +55 11 3384-2525
-E-mail: institutomontcare@gmail.com
+E-mail: contato@institutomontcare.com.br
 
 ## Páginas principais
 ${staticRoutes
@@ -253,6 +253,30 @@ Options -MultiViews
 AddType text/plain .txt
 AddCharset UTF-8 .txt
 
+<Files "robots.txt">
+  ForceType text/plain
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
+<Files "llms.txt">
+  ForceType text/plain
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
+<Files "sitemap.xml">
+  ForceType application/xml
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -275,12 +299,19 @@ AddCharset UTF-8 .txt
 
   writeFileSync(
     join(distDir, "_headers"),
-    `/robots.txt
+`/robots.txt
   Content-Type: text/plain; charset=utf-8
+  Content-Disposition: inline
   Cache-Control: public, max-age=300
 
 /sitemap.xml
   Content-Type: application/xml; charset=utf-8
+  Content-Disposition: inline
+  Cache-Control: public, max-age=300
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Content-Disposition: inline
   Cache-Control: public, max-age=300
 `,
   );

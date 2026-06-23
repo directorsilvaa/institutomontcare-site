@@ -3,6 +3,30 @@ Options -MultiViews
 AddType text/plain .txt
 AddCharset UTF-8 .txt
 
+<Files "robots.txt">
+  ForceType text/plain
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
+<Files "llms.txt">
+  ForceType text/plain
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
+<Files "sitemap.xml">
+  ForceType application/xml
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header set Content-Disposition "inline"
+  </IfModule>
+</Files>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

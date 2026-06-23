@@ -109,6 +109,9 @@ createServer((request, response) => {
 
   response.writeHead(200, {
     "Content-Type": mimeTypes[extname(filePath)] || "application/octet-stream",
+    ...(filePath.endsWith("robots.txt") || filePath.endsWith("llms.txt") || filePath.endsWith("sitemap.xml")
+      ? { "Content-Disposition": "inline" }
+      : {}),
   });
   createReadStream(filePath).pipe(response);
 }).listen(port, () => {
