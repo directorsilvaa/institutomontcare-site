@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createServer } from "vite";
 
@@ -107,6 +107,29 @@ function replaceRootHtml(html, bodyHtml) {
   return html.replace(/<div id="root"[^>]*>[\s\S]*<\/div>\s*(?=<\/body>)/i, `<div id="root">\n${formatBodyHtml(bodyHtml)}\n    </div>\n  `);
 }
 
+function readBuiltCss() {
+  const assetsDir = join(distDir, "assets");
+
+  if (!existsSync(assetsDir)) {
+    return "";
+  }
+
+  return readdirSync(assetsDir)
+    .filter((filename) => filename.endsWith(".css"))
+    .map((filename) => readFileSync(join(assetsDir, filename), "utf8"))
+    .join("\n");
+}
+
+function inlineCss(html, css) {
+  if (!css || html.includes('id="montcare-inline-styles"')) {
+    return html;
+  }
+
+  const styleTag = `<style id="montcare-inline-styles">\n${css.replaceAll("</style", "<\\/style")}\n</style>`;
+
+  return html.replace("</head>", () => `    ${styleTag}\n  </head>`);
+}
+
 function formatBodyHtml(html) {
   const lines = html
     .replace(/></g, ">\n<")
@@ -145,6 +168,7 @@ const vite = await createServer({
 
 try {
   const template = readFileSync(indexPath, "utf8");
+  const builtCss = readBuiltCss();
   const { buildStructuredData, pageMeta, render, staticRoutes } = await vite.ssrLoadModule("/src/entry-server.jsx");
 
   for (const route of staticRoutes) {
@@ -158,7 +182,7 @@ try {
             buildStructuredData(page, siteUrl),
           );
 
-    writePage(route.path, html);
+    writePage(route.path, inlineCss(html, builtCss));
   }
 
   const lastmod = new Date().toISOString().slice(0, 10);
