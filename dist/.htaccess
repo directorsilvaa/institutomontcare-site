@@ -10,10 +10,16 @@ AddCharset UTF-8 .xml
   RemoveType .txt
   ForceType text/plain
   <IfModule mod_headers.c>
-    Header unset Content-Disposition
+    Header onsuccess unset Content-Disposition
+    Header always unset Content-Disposition
     Header set Content-Type "text/plain; charset=UTF-8"
+    Header always set Content-Type "text/plain; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header always set Content-Disposition "inline"
+    Header set Cache-Control "public, max-age=300"
+    Header always set Cache-Control "public, max-age=300"
     Header set X-Content-Type-Options "nosniff"
+    Header always set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
@@ -21,10 +27,16 @@ AddCharset UTF-8 .xml
   RemoveType .txt
   ForceType text/plain
   <IfModule mod_headers.c>
-    Header unset Content-Disposition
+    Header onsuccess unset Content-Disposition
+    Header always unset Content-Disposition
     Header set Content-Type "text/plain; charset=UTF-8"
+    Header always set Content-Type "text/plain; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header always set Content-Disposition "inline"
+    Header set Cache-Control "public, max-age=300"
+    Header always set Cache-Control "public, max-age=300"
     Header set X-Content-Type-Options "nosniff"
+    Header always set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
@@ -32,10 +44,16 @@ AddCharset UTF-8 .xml
   RemoveType .xml
   ForceType application/xml
   <IfModule mod_headers.c>
-    Header unset Content-Disposition
+    Header onsuccess unset Content-Disposition
+    Header always unset Content-Disposition
     Header set Content-Type "application/xml; charset=UTF-8"
+    Header always set Content-Type "application/xml; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header always set Content-Disposition "inline"
+    Header set Cache-Control "public, max-age=300"
+    Header always set Cache-Control "public, max-age=300"
     Header set X-Content-Type-Options "nosniff"
+    Header always set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
