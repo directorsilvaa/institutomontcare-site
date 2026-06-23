@@ -1,5 +1,7 @@
 DirectoryIndex index.html
 Options -MultiViews
+AddType text/plain .txt
+AddCharset UTF-8 .txt
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
