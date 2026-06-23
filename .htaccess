@@ -14,26 +14,35 @@ AddCharset UTF-8 .txt
 AddCharset UTF-8 .xml
 
 <Files "robots.txt">
+  RemoveType .txt
   ForceType text/plain
   <IfModule mod_headers.c>
+    Header unset Content-Disposition
     Header set Content-Type "text/plain; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
 <Files "llms.txt">
+  RemoveType .txt
   ForceType text/plain
   <IfModule mod_headers.c>
+    Header unset Content-Disposition
     Header set Content-Type "text/plain; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
 <Files "sitemap.xml">
+  RemoveType .xml
   ForceType application/xml
   <IfModule mod_headers.c>
+    Header unset Content-Disposition
     Header set Content-Type "application/xml; charset=UTF-8"
     Header set Content-Disposition "inline"
+    Header set X-Content-Type-Options "nosniff"
   </IfModule>
 </Files>
 
