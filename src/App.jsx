@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Quem somos", href: "#quem-somos" },
-  { label: "Blog", href: "#" },
   { label: "FAQ", href: "#duvidas" },
 ];
 
@@ -1141,10 +1140,6 @@ function Header({ isInnerPage = false }) {
         >
           Quem somos
         </a>
-        <a href="#" className="mobile-drawer-link" onClick={closeMobileMenu}>
-          Blog
-        </a>
-
         <div className="mobile-drawer-group">
           <span className="mobile-drawer-label">Soluções</span>
           {procedures.map((item) => (
