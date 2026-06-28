@@ -130,6 +130,47 @@ function inlineCss(html, css) {
   return html.replace("</head>", () => `    ${styleTag}\n  </head>`);
 }
 
+function escapeScriptText(value) {
+  return String(value).replaceAll("</script", "<\\/script");
+}
+
+function inlineLlmsText(html, llmsText) {
+  const llmsTag = `<script id="llms-txt" type="text/plain">\n${escapeScriptText(llmsText)}\n</script>`;
+
+  return replaceOrInsert(
+    html,
+    /<script\s+id="llms-txt"\s+type="text\/plain">.*?<\/script>/is,
+    llmsTag,
+  );
+}
+
+function buildLlmsText(staticRoutes, pageMeta) {
+  return `# Instituto Montcare
+
+Site oficial: ${siteUrl}
+Idioma principal: pt-BR
+Tipo de negÃ³cio: clÃ­nica mÃ©dica com foco em ortopedia resolutiva, cirurgia da coluna, reabilitaÃ§Ã£o ortopÃ©dica, infiltraÃ§Ãµes ortopÃ©dicas, cirurgias minimamente invasivas, mastologia, reconstruÃ§Ã£o mamÃ¡ria, nutriÃ§Ã£o esportiva e cuidado infectolÃ³gico.
+LocalizaÃ§Ã£o: Av. Moaci, 395, 14Âº andar, Sala 145 â€” Moema, SÃ£o Paulo/SP, Brasil.
+Telefone/WhatsApp: +55 11 3384-2525
+E-mail: contato@institutomontcare.com.br
+
+## PÃ¡ginas principais
+${staticRoutes
+  .map((route) => {
+    const page = pageMeta[route.key] || pageMeta.home;
+    return `- ${page.serviceName}: ${absoluteUrl(page.path)} - ${page.description}`;
+  })
+  .join("\n")}
+
+## Respostas diretas
+- O Instituto Montcare Ã© uma clÃ­nica em SÃ£o Paulo focada em atendimento ortopÃ©dico resolutivo e humanizado.
+- A reabilitaÃ§Ã£o ortopÃ©dica auxilia recuperaÃ§Ã£o de movimento, autonomia, controle da dor e retorno seguro Ã s atividades.
+- A artrodese da coluna Ã© uma cirurgia para estabilizar segmentos especÃ­ficos da coluna em casos selecionados.
+- A infiltraÃ§Ã£o ortopÃ©dica pode ajudar no controle de dor e inflamaÃ§Ã£o apÃ³s avaliaÃ§Ã£o mÃ©dica.
+- Cirurgias minimamente invasivas buscam tratar quadros ortopÃ©dicos com menor agressÃ£o tecidual quando bem indicadas.
+`;
+}
+
 function formatBodyHtml(html) {
   const lines = html
     .replace(/></g, ">\n<")
@@ -170,19 +211,17 @@ try {
   const template = readFileSync(indexPath, "utf8");
   const builtCss = readBuiltCss();
   const { buildStructuredData, pageMeta, render, staticRoutes } = await vite.ssrLoadModule("/src/entry-server.jsx");
+  const llmsText = buildLlmsText(staticRoutes, pageMeta);
 
   for (const route of staticRoutes) {
     const page = pageMeta[route.key] || pageMeta.home;
-    const html =
-      route.key === "home"
-        ? template
-        : renderHead(
-            replaceRootHtml(template, render(route.key)),
-            page,
-            buildStructuredData(page, siteUrl),
-          );
+    const html = renderHead(
+      replaceRootHtml(template, render(route.key)),
+      page,
+      buildStructuredData(page, siteUrl),
+    );
 
-    writePage(route.path, inlineCss(html, builtCss));
+    writePage(route.path, inlineLlmsText(inlineCss(html, builtCss), llmsText));
   }
 
   const lastmod = new Date().toISOString().slice(0, 10);

@@ -681,7 +681,7 @@ export const pageMeta = {
     title: "Instituto Montcare | Excelência em Ortopedia",
     description:
       "Instituto Montcare é um centro de excelência em ortopedia com medicina resolutiva, estrutura moderna e cuidado multidisciplinar.",
-    path: getHomeHref(),
+    path: "/",
     serviceName: "Excelência em ortopedia",
     seoContent: {
       eyebrow: "Resumo para pacientes",
@@ -851,13 +851,19 @@ function ensureLink(selector, attributes) {
 }
 
 // Monta o conjunto de dados estruturados para melhorar indexação e rich results.
+function getAbsoluteAssetUrl(origin, path) {
+  return `${origin}${withBase(path).replace(/^\./, "")}`;
+}
+
 export function buildStructuredData(meta, siteOrigin) {
   const origin = siteOrigin || (typeof window !== "undefined" ? window.location.origin : "https://institutomontcare.com.br");
   const clinicId = `${origin}/#clinic`;
   const websiteId = `${origin}/#website`;
-  const webpageId = `${origin}/#webpage`;
-  const pagePath = meta?.path || getHomeHref();
+  const pagePath = meta?.path || "/";
   const pageUrl = `${origin}${pagePath}`;
+  const webpageId = `${pageUrl}#webpage`;
+  const isHomePage = pagePath === "/";
+  const shareImageUrl = getAbsoluteAssetUrl(origin, DEFAULT_SHARE_IMAGE);
   const areaServed = ["São Paulo", "Moema", "Indianópolis", "Zona Sul de São Paulo"].map((name) => ({
     "@type": "Place",
     name,
@@ -884,7 +890,7 @@ export function buildStructuredData(meta, siteOrigin) {
     "@id": `${origin}/#organization`,
     name: CLINIC_NAME,
     url: origin,
-    logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+    logo: shareImageUrl,
     contactPoint: {
       "@type": "ContactPoint",
       telephone: CLINIC_PHONE,
@@ -899,8 +905,8 @@ export function buildStructuredData(meta, siteOrigin) {
     "@id": clinicId,
     name: CLINIC_NAME,
     url: origin,
-    image: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
-    logo: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+    image: shareImageUrl,
+    logo: shareImageUrl,
     telephone: CLINIC_PHONE,
     email: CLINIC_EMAIL,
     priceRange: "$$",
@@ -980,9 +986,10 @@ export function buildStructuredData(meta, siteOrigin) {
     inLanguage: "pt-BR",
     isPartOf: { "@id": websiteId },
     about: { "@id": clinicId },
+    breadcrumb: { "@id": `${pageUrl}#breadcrumb` },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: `${origin}${withBase(DEFAULT_SHARE_IMAGE).replace(/^\./, "")}`,
+      url: shareImageUrl,
     },
     speakable: {
       "@type": "SpeakableSpecification",
@@ -990,20 +997,65 @@ export function buildStructuredData(meta, siteOrigin) {
     },
   };
 
-  const faqSchema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: (meta.faq || faqItems).map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Instituto Montcare",
+        item: `${origin}/`,
       },
-    })),
+      ...(!isHomePage
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: meta.serviceName,
+              item: pageUrl,
+            },
+          ]
+        : []),
+    ],
   };
 
-  return [organizationSchema, clinicSchema, websiteSchema, webpageSchema, faqSchema];
+  const structuredData = [organizationSchema, clinicSchema, websiteSchema, webpageSchema, breadcrumbSchema];
+
+  if (!isHomePage) {
+    structuredData.push({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: meta.serviceName,
+      description: meta.description,
+      url: pageUrl,
+      inLanguage: "pt-BR",
+      provider: { "@id": clinicId },
+      areaServed,
+      serviceType: meta.serviceName,
+      mainEntityOfPage: { "@id": webpageId },
+    });
+  }
+
+  if (meta.faq?.length) {
+    structuredData.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: meta.faq.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    });
+  }
+
+  return structuredData;
 }
 
 function SeoContentBlock({ meta }) {
@@ -1104,7 +1156,7 @@ function Header({ isInnerPage = false }) {
 
           <div className="dropdown-menu">
             {procedures.map((item) => (
-              <a key={item.title} href={getProcedureHref(item.title, isInnerPage)} className="dropdown-link">
+              <a key={item.title} href={getProcedureHref(item.title)} className="dropdown-link">
                 {item.title}
               </a>
             ))}
@@ -1145,7 +1197,7 @@ function Header({ isInnerPage = false }) {
           {procedures.map((item) => (
             <a
               key={item.title}
-              href={getProcedureHref(item.title, isInnerPage)}
+              href={getProcedureHref(item.title)}
               className="mobile-drawer-sublink"
               onClick={closeMobileMenu}
             >
@@ -1335,7 +1387,7 @@ function HomePage() {
         <div className="hero-overlay">
           <section className="hero-content">
             <h1 className="hero-title">
-              Cuidado ortopédico de excelência para te dar mais qualidade de vida.
+              Ortopedia resolutiva <span>para mais qualidade de vida.</span>
             </h1>
             <p className="hero-subtitle">Medicina resolutiva: foco em resultados.</p>
           </section>

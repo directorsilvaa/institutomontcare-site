@@ -473,21 +473,25 @@ img {
 }
 
 .hero-content {
-  max-width: 540px;
+  max-width: 760px;
 }
 
 .hero-title {
   font-family: Georgia, "Times New Roman", serif;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(2.25rem, 3.8vw, 3.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 3.05vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: 0;
   font-weight: 400;
   text-transform: uppercase;
-  max-width: 16ch;
+  max-width: 22ch;
   text-wrap: balance;
   text-shadow: 0 10px 32px rgba(0, 0, 0, 0.32);
+}
+
+.hero-title span {
+  display: inline;
 }
 
 .hero-subtitle {
@@ -2184,8 +2188,8 @@ img {
   }
 
   .hero-title {
-    font-size: 2.35rem;
-    max-width: 9ch;
+    font-size: 1.9rem;
+    max-width: 22ch;
   }
 
   .hero-button {
@@ -3782,7 +3786,11 @@ img {
 
   .hero-title {
     max-width: none;
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(1.85rem, 6vw, 2.45rem);
+  }
+
+  .hero-title span {
+    display: inline;
   }
 
   .hero-button {
