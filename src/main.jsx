@@ -103,8 +103,12 @@ function enhanceStaticPage(root) {
   });
 }
 
-if (rootElement.hasChildNodes()) {
+const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+const isStaticHomePath = pathname === "/" || pathname === "/index.html";
+
+if (rootElement.hasChildNodes() && isStaticHomePath) {
   enhanceStaticPage(rootElement);
 } else {
+  rootElement.replaceChildren();
   ReactDOM.createRoot(rootElement).render(app);
 }

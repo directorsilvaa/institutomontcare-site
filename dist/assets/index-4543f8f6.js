@@ -8855,10 +8855,10 @@ function HomePage() {
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "procedures-section", id: "procedimentos", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "procedures-shell", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "procedures-title", "data-reveal": true, children: "PROCEDIMENTOS" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "procedure-grid", children: procedures.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("article", { className: "procedure-item", "data-reveal": true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "procedure-copy", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "procedure-grid", children: procedures.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: getProcedureHref(item.title), className: "procedure-item", "data-reveal": true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "procedure-copy", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: item.title }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: item.description }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: getProcedureHref(item.title), children: "VER MAIS →" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "VER MAIS →" })
       ] }) }, item.title)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "procedures-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", "data-reveal": true, children: "Agende sua consulta" })
     ] }) }),
@@ -9279,13 +9279,13 @@ function MinimallyInvasivePage() {
 }
 function App({ initialPage } = {}) {
   const hasWindow = typeof window !== "undefined";
-  const pathname = hasWindow ? window.location.pathname.replace(/\/+$/, "") || "/" : "/";
+  const pathname2 = hasWindow ? window.location.pathname.replace(/\/+$/, "") || "/" : "/";
   const searchParams = hasWindow ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const page = initialPage || searchParams.get("page");
-  const isRehabPage = page === "reabilitacao-ortopedica" || pathname.endsWith("/reabilitacao-ortopedica");
-  const isArthrodesisPage = page === "artrodeses" || pathname.endsWith("/artrodeses");
-  const isInfiltrationPage = page === "infiltracoes" || pathname.endsWith("/infiltracoes");
-  const isMinimallyInvasivePage = page === "cirurgias-minimamente-invasivas" || pathname.endsWith("/cirurgias-minimamente-invasivas");
+  const isRehabPage = page === "reabilitacao-ortopedica" || pathname2.endsWith("/reabilitacao-ortopedica");
+  const isArthrodesisPage = page === "artrodeses" || pathname2.endsWith("/artrodeses");
+  const isInfiltrationPage = page === "infiltracoes" || pathname2.endsWith("/infiltracoes");
+  const isMinimallyInvasivePage = page === "cirurgias-minimamente-invasivas" || pathname2.endsWith("/cirurgias-minimamente-invasivas");
   const currentMetaKey = page || (isRehabPage ? "reabilitacao-ortopedica" : isArthrodesisPage ? "artrodeses" : isInfiltrationPage ? "infiltracoes" : isMinimallyInvasivePage ? "cirurgias-minimamente-invasivas" : "home");
   reactExports.useEffect(() => {
     var _a;
@@ -9507,8 +9507,11 @@ function enhanceStaticPage(root) {
     });
   });
 }
-if (rootElement.hasChildNodes()) {
+const pathname = window.location.pathname.replace(/\/+$/, "") || "/";
+const isStaticHomePath = pathname === "/" || pathname === "/index.html";
+if (rootElement.hasChildNodes() && isStaticHomePath) {
   enhanceStaticPage(rootElement);
 } else {
+  rootElement.replaceChildren();
   client.createRoot(rootElement).render(app);
 }

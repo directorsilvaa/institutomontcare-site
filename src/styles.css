@@ -1266,7 +1266,7 @@ img {
   line-height: 1.55;
 }
 
-.procedure-copy a {
+.procedure-copy span {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;

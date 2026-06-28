@@ -1468,13 +1468,13 @@ function HomePage() {
 
           <div className="procedure-grid">
             {procedures.map((item) => (
-              <article key={item.title} className="procedure-item" data-reveal>
+              <a key={item.title} href={getProcedureHref(item.title)} className="procedure-item" data-reveal>
                 <div className="procedure-copy">
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
-                  <a href={getProcedureHref(item.title)}>VER MAIS →</a>
+                  <span>VER MAIS →</span>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
 
