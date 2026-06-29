@@ -1466,15 +1466,52 @@ function HomePage() {
         <div className="procedures-shell">
           <h2 className="procedures-title" data-reveal>PROCEDIMENTOS</h2>
 
-          <div className="procedure-grid">
-            {procedures.map((item) => (
-              <a key={item.title} href={getProcedureHref(item.title)} className="procedure-item" data-reveal>
-                <div className="procedure-copy">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <span>VER MAIS →</span>
+          <div className="solutions-grid">
+            {healthcareSolutionGroups.map((group) => (
+              <div key={group.category} className="solution-group" data-reveal>
+                <h3 className="solution-group-title">{group.category}</h3>
+
+                <div className="solution-items">
+                  {group.items.map((item) => {
+                    const href = item.hrefTitle ? getProcedureHref(item.hrefTitle) : WHATSAPP_HREF;
+                    const isExternal = href === WHATSAPP_HREF;
+
+                    return (
+                      <a
+                        key={`${group.category}-${item.title}`}
+                        href={href}
+                        className="solution-card"
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noreferrer" : undefined}
+                      >
+                        <div className="solution-art" aria-hidden="true">
+                          <span className="solution-art-ray solution-art-ray-one" />
+                          <span className="solution-art-ray solution-art-ray-two" />
+                          <img
+                            src={withBase(item.icon)}
+                            alt=""
+                            width="92"
+                            height="92"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+
+                        <div className="solution-card-body">
+                          <h3>
+                            {item.title}
+                            {item.subtitle ? <span>{item.subtitle}</span> : null}
+                          </h3>
+                        </div>
+
+                        <div className="solution-card-actions" aria-hidden="true">
+                          <span className="solution-link">{item.hrefTitle ? "Ver mais" : "Agendar"}</span>
+                        </div>
+                      </a>
+                    );
+                  })}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 

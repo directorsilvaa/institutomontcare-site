@@ -7764,7 +7764,7 @@ const healthcareSolutions = [
     icon: "/06_cuidado_infectologico/05_prevencao_de_infeccoes.svg"
   }
 ];
-healthcareSolutions.reduce((groups, solution) => {
+const healthcareSolutionGroups = healthcareSolutions.reduce((groups, solution) => {
   const group = groups.find((item) => item.category === solution.category);
   if (group) {
     group.items.push(solution);
@@ -8855,11 +8855,45 @@ function HomePage() {
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "procedures-section", id: "procedimentos", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "procedures-shell", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "procedures-title", "data-reveal": true, children: "PROCEDIMENTOS" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "procedure-grid", children: procedures.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: getProcedureHref(item.title), className: "procedure-item", "data-reveal": true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "procedure-copy", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: item.title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: item.description }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "VER MAIS →" })
-      ] }) }, item.title)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "solutions-grid", children: healthcareSolutionGroups.map((group) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "solution-group", "data-reveal": true, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "solution-group-title", children: group.category }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "solution-items", children: group.items.map((item) => {
+          const href = item.hrefTitle ? getProcedureHref(item.hrefTitle) : WHATSAPP_HREF;
+          const isExternal = href === WHATSAPP_HREF;
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href,
+              className: "solution-card",
+              target: isExternal ? "_blank" : void 0,
+              rel: isExternal ? "noreferrer" : void 0,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "solution-art", "aria-hidden": "true", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "solution-art-ray solution-art-ray-one" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "solution-art-ray solution-art-ray-two" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "img",
+                    {
+                      src: withBase(item.icon),
+                      alt: "",
+                      width: "92",
+                      height: "92",
+                      loading: "lazy",
+                      decoding: "async"
+                    }
+                  )
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "solution-card-body", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
+                  item.title,
+                  item.subtitle ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: item.subtitle }) : null
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "solution-card-actions", "aria-hidden": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "solution-link", children: item.hrefTitle ? "Ver mais" : "Agendar" }) })
+              ]
+            },
+            `${group.category}-${item.title}`
+          );
+        }) })
+      ] }, group.category)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("a", { className: "procedures-button", href: WHATSAPP_HREF, target: "_blank", rel: "noreferrer", "data-reveal": true, children: "Agende sua consulta" })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "specialties-section", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "specialties-shell", children: [
